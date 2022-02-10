@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+pre,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+.sub-selection-header {
+  /* outline: 1px solid red; */
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1rem;
+  padding-block: 0.9rem;
+  box-shadow: 0px 13px 31px -13px rgba(0, 0, 0, 0.89);
+  background-image: linear-gradient(
+    to top,
+    #ebebeb,
+    #f0f0f0,
+    #f5f5f5,
+    #fafafa,
+    #ffffff
+  );
+}
+
+.logo {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.subselection-form-main-container {
+  /* outline: 1px solid red; */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subselection-form-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 25px;
+  width: 30vw;
+  min-height: 300px;
+  padding: 20px 25px;
+  box-shadow: 2px 6px 15px #d5d5d5, -4px -5px 15px #d5d5d5;
+  margin: auto;
+}
+
+.subselection-form {
+  /* outline: 1px solid hotpink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-block: auto;
+  gap: 1.5rem;
+}
+.form-group {
+  transition: all 0.3s;
+}
+
+.form-label {
+  /* border: 1px solid red; */
+
+  font-size: 1rem;
+  color: #0a193d;
+  font-family: "Karla", sans-serif;
+  display: block;
+  opacity: 1;
+  transform: translateY(-1.6em);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+}
+
+.form-control {
+  border-radius: 0;
+  border-color: #ccc;
+  border-style: none none solid none;
+  width: 100%;
+  transition: all 0.5s;
+  padding: 5px;
+}
+
+.form-control::placeholder {
+  color: transparent;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: orange;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-3rem) scale(0.8);
+}
+
+.form-group:focus-within {
+  transform: scale(1.01, 1.01);
+}
+
+.select-group {
+  /* outline: 1px solid green; */
+  position: relative;
+}
+
+.subselection-select-input {
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+  padding: 0.5rem 4rem 0.5rem 0.5rem;
+  border: 1px solid #4d5061;
+  cursor: pointer;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #3b3c47;
+  height: 100%;
+  width: 4rem;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+  --size: 0.5rem;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.5);
+  top: 35%;
+}
+
+.custom-arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid rgba(255, 255, 255, 0.5);
+  top: 65%;
+}
+
+.selection-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.subselection-proceed-btn {
+  font-size: 1.1rem;
+  font-family: "Karla", sans-serif;
+  font-weight: 900;
+  background-color: rgb(0, 204, 0);
+  border: 0;
+  outline: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.subselection-proceed-btn:hover {
+  background-color: rgb(0, 255, 0);
+}
+
+.subselection-cancel-btn {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: "Karla", sans-serif;
+  font-weight: 900;
+  color: rgb(0, 140, 255);
+  transition: 0.3s;
+  padding: 0.5rem 1rem;
+}
+
+/* .subselection-cancel-btn:hover {
+  background-color: rgb(209, 209, 209);
+  border-radius: 0.2rem;
+} */
+
+.message-container {
+  background-color: rgba(255, 166, 0, 0.1);
+  border: 2px solid rgb(255, 166, 0);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.subselection-message {
+  color: orange;
+  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+}

@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+pre,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+.dedoc-button-container {
+  /* outline: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dedoc-button {
+  border: 0;
+  outline: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  font-family: "Karla", sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.4rem);
+  cursor: pointer;
+  background-color: #000;
+  color: #ffff;
+  transition: all 0.3s;
+}
+
+.dedoc-button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dedoc-citation-wrapper {
+  border: 2px solid rgb(90, 90, 90);
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0.5rem 1.2rem;
+  margin-inline: auto;
+}
+
+.dedoc-report-overuled-container {
+  /* outline: 1px solid red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dedoc-report,
+.dedoc-overruled,
+.dedoc-court,
+.dedoc-equi-citation,
+.dedoc-apellate,
+.dedoc-adv-petitioner,
+.dedoc-adv-respondent,
+.dedoc-party-name,
+.dedoc-headnote,
+.dedoc-references,
+.dedoc-order,
+.dedoc-date-of-order {
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.dedoc-court {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.dedoc-report,
+.dedoc-overruled,
+.dedoc-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.dedoc-title-container {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.dedoc-title {
+  text-align: center;
+}
+.dedocequi-citation-container {
+  text-align: center;
+}
+
+.dedoc-advocate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.dedoc-references-container {
+  /* outline: 1px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dedoc-references {
+  text-align: left;
+}
+
+.dedoc-headnote-container {
+  text-align: justify;
+}
+
+.dedoc-order-container {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 0.5rem;
+}

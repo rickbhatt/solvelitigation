@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+.professional-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prof-nav-ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.prof-nav-list {
+  list-style: none;
+}
+.prof-nav-link {
+  text-decoration: none;
+  padding: 0.5rem 1.1rem;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bolder;
+  /* font-size: 1.125rem; */
+  font-size: clamp(0.9rem, 1.1vw, 1.5rem);
+  transition: 300ms;
+}
+
+.prof-nav-link:hover {
+  background-color: #fff;
+  color: #000;
+  border-radius: 2.1rem;
+  /* box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5); */
+}

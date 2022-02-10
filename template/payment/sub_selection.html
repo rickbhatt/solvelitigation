@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solve Litigation | Subscription</title>
+
+    <link rel="stylesheet" href="{% static 'css/subselection.css' %}">
+
+    <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
+
+  </head>
+  <body>
+
+  <div class="sub-selection-wrapper">
+    <header class="sub-selection-header">
+      <a class="logo-link" href="{% url 'home' %}"
+          ><img
+            class="logo"
+            src="{% static 'images/slvemongramdarkblue.svg' %}"
+            alt="logo"
+        /></a>
+    </header>
+
+    <main class="subselection-form-main-container">
+        <section class="subselection-form-container">
+          {% if messages %}
+          <div class="message-container">
+            {% for message in messages %}
+            <p class="subselection-message">{{message}}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+            <form class="subselection-form"  method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="user id"
+                      required
+                    />
+                    <label for="email" class="form-label">EMAIL ID</label>
+                </div> 
+            
+                <div class="select-group">
+                    <select class="subselection-select-input" name="category" id="category" required>
+                      <option value="0" selected hidden disabled>Select Category...</option>
+                      <option value="11">Civil</option>
+                      <option value="21">Criminal</option>
+                      <option value="31">Service</option>
+                      <option value="41">Taxation</option>
+                      <option value="51">Corporate</option>
+                    </select>
+
+                    <span class="custom-arrow"></span>
+                </div>
+
+                <div class="select-group">
+                  
+                    <select class="subselection-select-input" name="duration" id="duration" required>
+                      <option value="0" selected hidden disabled>Subscription Duration...</option>
+                      <option value="monthly">Monthly</option>
+                      <option value="quaterly">Quaterly (3 months)</option>
+                      <option value="hf">Half Yearly (6 months)</option>
+                    </select>
+                    <span class="custom-arrow"></span>
+                </div>
+                
+                
+                <div class="selection-btn-container">
+                   <button type="submit" class="subselection-proceed-btn">Proceed</button>
+                   <a href="/subscription/#professional" class="subselection-cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,401 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solve Litigation | Register</title>
+
+    <script
+      src="https://kit.fontawesome.com/2b3aa8f23b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+
+    <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/jquery-3.6.0.min.js' %}"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/regd_ajax.js' %}"
+    ></script>
+  </head>
+  <body>
+    <!--------------------------------------  OTP SECTION  ------------------------------------------------------------------------->
+
+    {% if otp %}
+    <div class="register-wrapper">
+      <div class="register-header">
+        <a href="/">
+          <img
+            class="logo"
+            src="{% static 'images/slvemongramdarkblue.svg' %}"
+            alt="solvelitigation"
+          />
+        </a>
+      </div>
+
+      <div class="regsiter-main-container">
+        {% if messages %}
+        <div class="register-message-container">
+          {% for message in messages %}
+          <p>{{message}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="register-otp-form-container">
+          <h3>OTP VERIFICATION</h3>
+          <form method="POST">
+            {% csrf_token %}
+
+            <div class="register-form-group">
+              <input
+                type="text"
+                class="register-form-control"
+                id="otp"
+                name="otp"
+                maxlength="6"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                placeholder="OTP"
+                required
+              />
+              <label for="otp" class="register-form-label">OTP</label>
+              <input type="hidden" name="user" value="{{user.email}}" />
+            </div>
+            <input
+              class="register-buttons"
+              type="submit"
+              value="Submit OTP"
+              required
+            />
+            <p>An Otp has been sent to your registered email id.</p>
+          </form>
+
+          <a
+            class="resend-otp"
+            href="#"
+            onclick="ReSendOTP('{{user.email}}', 'resendOTPmess')"
+            ><span id="resendOTPmess">Resend</span> OTP?</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------------- END OF OTP SECTION  ------------------------------------------------------------------------->
+
+    {% else %}
+
+    <div class="register-wrapper">
+      <div class="register-header">
+        <a href="{% url 'home' %}" class="logo-link">
+          <img
+            class="logo"
+            src="{% static 'images/slvemongramdarkblue.svg' %}"
+            alt="solvelitigation"
+          />
+        </a>
+      </div>
+
+      <div class="register-main-container">
+        {% if messages %}
+        <div class="register-message-container">
+          {% for message in messages %}
+          <p>{{message}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="register-form-container">
+          <form id="regForm" method="POST">
+            {% csrf_token %}
+
+            <h3>REGISTRATION</h3>
+
+            <!-- One tab for each step form -->
+            <!-- persoonal details -->
+            <div class="register-tab">
+              <p>Personal Details:</p>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="text"
+                  id="full_name"
+                  name="full_name"
+                  maxlength="255"
+                  style="text-transform: uppercase"
+                  placeholder="name"
+                  required
+                />
+                <label class="register-form-label" for="full_name">NAME</label>
+              </div>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="tel"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  id="age"
+                  name="age"
+                  maxlength="2"
+                  pattern="[0-9]{10}"
+                  placeholder="age"
+                  required
+                />
+                <label class="register-form-label" for="age">YOUR AGE</label>
+              </div>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="tel"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  id="phone"
+                  name="phone"
+                  maxlength="10"
+                  pattern="[0-9]{10}"
+                  placeholder="phone no"
+                  required
+                />
+                <label class="register-form-label" for="phone"
+                  >YOUR PHONE NUMBER</label
+                >
+              </div>
+
+              <div class="register-form-group">
+                <select
+                  class="register-form-control select-font"
+                  id="state"
+                  name="state"
+                  required
+                >
+                  <option value="select" disabled selected hidden>
+                    Select State/ UT
+                  </option>
+
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Andaman and Nicobar Islands">
+                    Andaman and Nicobar Islands
+                  </option>
+
+                  <option value="Bihar">Bihar</option>
+
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Chandigarh">Chandigarh</option>
+
+                  <option value="Dadra & Nagar Haveli and Daman & Diu">
+                    Dadra & Nagar Haveli and Daman & Diu
+                  </option>
+                  <option value="Delhi">Delhi</option>
+
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+
+                  <option value="	Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Ladakh">Ladakh</option>
+
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="	Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+
+                  <option value="Nagaland">Nagaland</option>
+
+                  <option value="Odisha">Odisha</option>
+
+                  <option value="Punjab">Punjab</option>
+                  <option value="Puducherry">Puducherry</option>
+
+                  <option value="Rajasthan">Rajasthan</option>
+
+                  <option value="Sikkim">Sikkim</option>
+
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="	Uttarakhand">Uttarakhand</option>
+
+                  <option value="West Bengal">West Bengal</option>
+                </select>
+              </div>
+            </div>
+            <!-- end for personal details -->
+
+            <!-- registration options-->
+
+            <div class="register-tab">
+              <p>Register As/ For</p>
+
+              <div class="regd-as">
+                <input
+                  type="radio"
+                  name="regd_as"
+                  id="professional"
+                  value="professional"
+                  required
+                />
+                <input
+                  type="radio"
+                  name="regd_as"
+                  id="individual"
+                  value="individual"
+                  required
+                />
+                <input
+                  type="radio"
+                  name="regd_as"
+                  id="firm_company"
+                  value="firm_company"
+                  required
+                />
+                <input
+                  type="radio"
+                  name="regd_as"
+                  id="research"
+                  value="research"
+                  required
+                />
+
+                <label for="professional" class="professional">
+                  <div class="dot"></div>
+                  <div class="opt-text">PROFESSIONAL</div>
+                </label>
+
+                <label for="individual" class="individual">
+                  <div class="dot"></div>
+                  <div class="opt-text">INDIVIDUAL</div>
+                </label>
+
+                <label for="firm_company" class="firm_company">
+                  <div class="dot"></div>
+                  <div class="opt-text">FIRM/ COMPANY</div>
+                </label>
+
+                <label for="research" class="research">
+                  <div class="dot"></div>
+                  <div class="opt-text">RESEARCH</div>
+                </label>
+              </div>
+            </div>
+            <!-- end for plans -->
+
+            <!-- login info -->
+
+            <div class="register-tab">
+              <p>Login Information</p>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="This will be your User ID"
+                  style="text-transform: lowercase"
+                  required
+                />
+                <label class="register-form-label" for="email"
+                  >YOUR EMAIL</label
+                >
+              </div>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="password"
+                  id="password"
+                  name="password"
+                  maxlength="10"
+                  placeholder="max 10 characters"
+                  required
+                />
+                <label class="register-form-label" for="password"
+                  >PASSWORD (max 10 characters)</label
+                >
+              </div>
+
+              <div class="register-form-group">
+                <input
+                  class="register-form-control"
+                  type="password"
+                  id="con_password"
+                  name="con_password"
+                  maxlength="10"
+                  placeholder="confirm_password"
+                  required
+                />
+                <label class="register-form-label" for="con_password"
+                  >CONFIRM PASSWORD</label
+                >
+              </div>
+            </div>
+            <!-- end for login info -->
+
+            <!-- button container -->
+
+            <div id="buttoncontainer" class="button-container">
+              <button
+                class="register-buttons"
+                type="button"
+                id="prevBtn"
+                onclick="nextPrev(-1)"
+              >
+                Previous
+              </button>
+              <button
+                class="register-buttons"
+                type="button"
+                id="nextBtn"
+                onclick="nextPrev(1)"
+              >
+                Next
+              </button>
+            </div>
+            <!-- end for button container -->
+
+            <!-- indicators -->
+            <div class="indicator-container">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <!-- <span class="step"></span> -->
+            </div>
+            <!-- end for indicators -->
+          </form>
+          <p>* By registering you are agreeing to the terms and conditions.</p>
+          <a href="">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+
+    {% endif %}
+
+    <!--------------------- SCIRPTS ------------------------------->
+
+    <script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+
+    <!--------------------- SCIRPTS------------------------------->
+  </body>
+</html>

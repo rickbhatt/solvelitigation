@@ -1,0 +1,49 @@
+{% extends 'consult_home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<title>{% block title %} Solve Litigation | Contact {% endblock %}  </title>
+
+<div class="contact-main-container">
+    <div class="contact-form-container">
+
+        <p class="contact-us-heading">
+            Contact Us <i class="fas fa-envelope"></i>
+        </p>
+
+        <div class="form-container">
+
+            <form action=" contact-us " method="POST">  
+                {% csrf_token %}
+
+                   
+                    <input  type="text" id="field" name="question" placeholder="Type your question here" required />
+                    <textarea name="question_desc" cols="70" rows="20" placeholder="Describe your question in about 500 words"></textarea>
+                    <div>
+                        <button class="send-message" type="submit"> Send Message <i class="fas fa-paper-plane"></i> </button>
+                    </div>
+            
+            </form>
+
+           
+
+        </div>
+
+    </div>
+
+    <div class="faq">
+        <p class="faq-heading">FAQs:</p>
+
+        {% for ques in faq %}
+        
+            <a class="faq-question" href="{% url 'FAQ' ques.pk %}">{{ques.question}}</a><br/>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

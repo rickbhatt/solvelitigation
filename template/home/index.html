@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta meta name="keywords" content="Law, Law firm, judgments">
+    <meta name="description" content="Solve Litigation provides you with all Indian citations from all the courts in the country.">
+    <title>Solve Litigation </title>
+
+    <script src="https://kit.fontawesome.com/2b3aa8f23b.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <link rel="icon" href="{% static 'images/solve_favicon.svg' %}">
+</head>
+<body>
+<div class="index-wrapper">
+   <div class="index-banner" id="home">
+        <div class="index-header">  
+            
+            <div class="index-logo">
+                <a href="/" class="logo-link-home">
+                   <img class="logo" src="{% static 'images/slvemongramdarkblue.svg' %}" alt="solvelitigation">
+                </a> 
+            </div>
+            
+            <button class="mobile-nav-toggle"><span class="ham-icon"><i class="fas fa-bars"></i></span> <span class="sr-only">Menu</span> </button> <!-- for toggling mobile menu -->
+            
+            <div class="index-nav-bar">
+                <ul class="index-nav-ul" data-visible="false">
+                    <li class="index-nav-list" id="home-for-mobile"><a href="#home" class="index-nav-links">HOME</a></li>
+                    <li class="index-nav-list"><a href="#services" class="index-nav-links">SERVICES</a></li>
+                    <li class="index-nav-list"><a href="#about" class="index-nav-links">ABOUT</a></li>
+                    <li class="index-nav-list"><a href="{% url 'subscription' %}" class="index-nav-links">SUBSCRIPTION</a></li>
+                    <li class="index-nav-list"><a href="{% url 'contact-us' %}" class="index-nav-links">CONTACT</a></li>
+                </ul>
+            </div>
+            
+
+            <div class="index-log-regd">
+                <ul class="index-log-regd-ul">
+                    <li class="index-log-regd-list"><a href="{% url 'register' %}" class="index-log-regd-links call-to-action">REGISTER</a></li>
+                    <li class="index-log-regd-list"><a href="{% url 'login' %}" class="index-log-regd-links">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- INTRO SECTION -->
+
+        <div class="index-intro-main-container">
+            
+            <div class="index-content">
+                
+                <div class="title-container">
+                    <p class="solve-litigation">Solve Litigation</p>
+                </div>
+
+                <div class="intro-para-content">
+                    <p class="description">In general parlance, Awareness is the key for success. “Solve litigation” is first of its kind, the Citizens as well as juristic persons can protect their fundamental and legal rights on ventilating their grievances in an appropriate forum. The National policy on computerization of Indian Judiciary has already stepped in. The constitution of India, has created various forum to ventilate grievances, as well, the forum having alternative remedy; the oblivion is likely to be swimming in an Ocean.
+                    “Solve litigation”, would be a guide to the aspirant to pave the way for ventilating their grievances, in its proper perspective.</p>
+                </div>
+
+            </div>
+            
+            <a href="#services" class="arrow-link">
+                <div class="scroll-button-container">
+                    <span class="arrow"><i class="fas fa-long-arrow-alt-down"></i></span> 
+                </div>
+            </a>
+
+        </div>
+
+   </div>
+
+   <!-- END OF INTRO SECTION -->
+
+   <!-- SERVICES SECTION -->
+
+   <div class="service-main-container" id="services">
+
+        <div class="service-content">
+            
+            <div class="service-title-container">
+                <p class="service-title">OUR SERVICES</p>
+            </div>
+
+            <div class="service-desc-container">
+                <p class="service-desc">We are here to assist you. We are providing a platform for one and all. Whether you are a lawyer who is in need of a site to do your legal research for a case, or a non-lawyer who needs to consult an advocate for your personal case, this website is an one-stop desination for you. For your convinience the services are divided in accordance with your requirements.</p>
+
+                <p class="service-desc">Furthermore, filling of returns under the statutory provision of GST, IT, PF or Companies Act etc. is also taken care of.</p>
+            </div>
+
+        </div>
+
+        <div class="service-cards-container">   
+            
+            <div class="service-card">
+                <div class="card-icon-container">    
+                    <span class="card-icon indi-icon"><i class="fas fa-user-tie"></i></span>
+                </div>
+                
+                <div class="card-title-container">
+                     <p class="card-title">INDIVIDUAL</p>
+                </div>
+                       
+                <div class="card-content-container">
+                    <p class="card-content">If you are an individual and need a lawyer to consult or take up your case, we provide you this facility. Just choose <span class="important-highlight">"individual"</span>  during registration and we shall connect with you. </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                 <div class="card-icon-container">    
+                    <span class="card-icon firm-icon"><i class="fas fa-users"></i></span>
+                </div>
+                
+                <div class="card-title-container">
+                     <p class="card-title">FIRM</p>
+                </div>
+                       
+                <div class="card-content-container">
+                    <p class="card-content">If you are representing a firm and want to consult us regrading any litigation or want us to take up your case, search no more as you have arrived at the right place. Just choose <span class="important-highlight">"firm"</span>  during registration and we shall get back to you.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                 <div class="card-icon-container">    
+                    <span class="card-icon comp-icon"><i class="fas fa-building"></i></span>
+                </div>
+                
+                <div class="card-title-container">
+                     <p class="card-title">COMPANY</p>
+                </div>
+                       
+                <div class="card-content-container">
+                    <p class="card-content">Comming from a company? Need a lawyer to consult or want him to take up your case? You have choosen the right site. Just choose <span class="important-highlight">"company"</span> during registration, and we shall contact you back asap.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                 <div class="card-icon-container">    
+                    <span class="card-icon research-icon"><i class="fas fa-user-graduate"></i></span>
+                </div>
+                
+                <div class="card-title-container">
+                     <p class="card-title">RESEARCH</p>
+                </div>
+                       
+                <div class="card-content-container">
+                    <p class="card-content">We also provide you a well maintained library to aid your legal research, not just providing general information but also some add-ons that will surely help you in your case. Choose <span class="important-highlight">"research"</span> during registration. </p>
+                </div>
+            </div>
+
+        </div>
+
+   </div>
+
+   <!-- END OF SERVICES SECTION -->
+
+   <!-- ABOUT US SECTION -->
+
+   <div class="about-main-container" id="about">
+      
+        <div class="open-quote-container">
+            <img class="quote" src="{% static 'images/quotes_open.svg' %}" alt="solvelitigation">
+        </div>
+        
+        <div class="about-content-container">
+        
+        <div class="about-title-container">
+            <p class="about-title">ABOUT US</p>
+        </div>
+ 
+        <div class="about-desc-container">
+            <p class="about-desc">We in Solve Litigation came up with the idea of providing a unified website that would serve people both from legal and non legal backgrounds. This site which is maintained and managed by professionals who hold expertise in their respective fields are determined to deliver quality assistance to our users. </p>
+        </div>
+    
+        <!-- <div class="about-desc-container">
+            <p class="about-desc"></p>
+        </div> -->
+      </div>
+
+      <div class="closed-quote-container">'
+            <img class="quote" src="{% static 'images/quotes_closed.svg' %}" alt="solvelitigation">
+      </div>
+   </div>
+
+   <!-- END OF ABOUT SECTION -->
+
+   <!-- SUBSCRIPTION -->
+   
+   <!-- <div class="subscription-main-container">
+
+   </div> -->
+
+   <!-- END OF SUBSCRIPTION -->
+
+<!-- FOOTER -->
+<div class="footer-main-container">
+    <div class="footer-row">
+        <div class="footer-col">
+            <img src="{% static 'images/slvemongramdarkblue.svg' %}" alt="logo" class="logo-footer">
+        </div>
+        
+        <div class="footer-col">
+            <h3>Contact <div class="underline"><span></span></div></h3>
+            <a class="write-to-us" href="{% url 'contact-us' %}">Write to us &nbsp<i class="fas fa-paper-plane"></i></a>
+           
+            <!-- <p class="contact-email">jgstar@gmail.com &nbsp<i class="fas fa-envelope-open-text"></i></p> -->
+
+        
+            
+            <h4>6909115355 &nbsp<i class="fas fa-phone"></i></h4>
+          
+
+        </div>
+        <div class="footer-col">
+            <h3>Links <div class="underline"><span></span></div></h3>
+            <ul>
+                <li><a class="footer-links" href="#">Home</a></li>
+                <li><a class="footer-links" href="#services">Services</a></li>
+                <li><a class="footer-links" href="{% url 'subscription' %}">Subscription</a></li>
+                <li><a class="footer-links" href="#about">About</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <hr>
+        <p class="index-copyright"><i class="far fa-copyright"></i>Solve Litigation | Technical Support: R. Bhattacharjee, 2021</p>
+</div>
+
+</div>
+<!-- END FOR FOOTERs -->
+
+</div>
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

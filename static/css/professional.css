@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+.prof-header {
+  /* outline: 1px solid red; */
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1rem;
+  padding-block: 0.9rem;
+  /* box-shadow: 0px 13px 31px -13px rgba(0, 0, 0, 0.89); */
+  background-image: linear-gradient(
+    to top,
+    #ebebeb,
+    #f0f0f0,
+    #f5f5f5,
+    #fafafa,
+    #ffffff
+  );
+}
+
+.logo {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logout-btn {
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2.1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bolder;
+  /* font-size: 1.125rem; */
+  font-size: clamp(0.9rem, 1.179vw, 1.5rem);
+  transition: 300ms;
+}
+
+.logout-btn:hover {
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.professional-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.nav-and-other {
+  /* outline: 1.5px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding-block: 0.5rem;
+  padding-inline: 1.2rem;
+}
+
+.profile-and-notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pro-and-noti-ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pro-and-noti-list {
+  list-style: none;
+}
+
+.pro-and-noti-btn {
+  width: clamp(0.9rem, 2.15vw, 2.9rem);
+  height: clamp(0.9rem, 2.15vw, 2.9rem);
+  color: #fff;
+  font-size: clamp(0.9rem, 1.7vw, 2.5rem);
+  background-color: transparent;
+  border: none;
+}
+
+.pro-and-noti-btn:hover {
+  border-radius: 50%;
+  color: #000;
+  background-color: #fff;
+}

@@ -1,0 +1,94 @@
+{% extends 'professional/professional_home.html' %}
+{% load static %}
+
+{% block section %}
+
+<section class="dedoc-button-container">
+   <button class="dedoc-button" id="pdf" >Download/Save Pdf</button> 
+   <button class="dedoc-button" id="emailme" >Email Me</button> 
+   <button class="dedoc-button" id="emailto" >Email To</button>
+</section>
+
+<section class="dedoc-citation-wrapper">
+
+   <article class="dedoc-report-overuled-container">
+       {% if query.reportable %}
+         <p class="dedoc-report" id="dedoc_report">Reportable</p>
+      {% else %}
+         <p class="dedoc-report" id="dedoc_nonreport">Non-Reportable</p>
+      {% endif %}
+
+       {% if query.over_ruled %}
+         <p class="dedoc-overruled" id="dedoc_overruled">Over Ruled</p>
+      {% endif %}
+   </article>
+
+   <article class="dedoc-title-container">    
+      <p class="dedoc-title" id="dedoc_title">{{query.title}}</p>
+   </article>
+
+   <article class="dedoc-court-container">
+         {% if query.court_name %}
+            <p class="dedoc-court" id="dedoc_court">In {{query.court_name}}</p>
+         {% endif %}
+
+         {% if query.tribunals %}
+            <p class="dedoc-court" id="dedoc_court">{{query.tribunals}}</p>
+         {% endif %}
+
+         {% if query.commission %}
+            <p class="dedoc-court" id="dedoc_court">Commission</p>
+         {% endif %}
+
+
+   </article>
+
+
+   {% if query.equivalent_citations %}
+      <article class="dedocequi-citation-container">
+         <p class="dedoc-equi-citation" id="equi_citation"> <b>Equivalent Citations:</b> {{query.equivalent_citations|safe}} </p>
+      </article>
+   {% endif %}
+
+
+   <article class="dedoc-apellate-container">
+      <p class="dedoc-apellate" id="dedoc_apellate">{{query.apelLate_type}}</p>
+   </article>
+
+   <article class="dedoc-caseno">
+      <p class="dedoc-caseno" id="dedco_caseno"> {{query.case_no|safe}} </p>
+   </article>
+
+   <article class="dedoc-date-of-order">
+      <p class="dedoc-date-of-order" id="dedco_of_order"> {{query.date_of_order}} </p>
+   </article>
+
+   <article class="dedoc-advocate-container">
+      <p class="dedoc-adv-petitioner"><b> Advoacates Appeared: </b></p>
+      <p class="dedoc-adv-petitioner" id="dedoc_advP"> <b>For the Pettioner:</b> {{query.advocate_petitioner}} </p>
+      <p class="dedoc-adv-respondent" id="dedoc_advR"> <b>For the Respondent:</b> {{query.advocate_respondent}} </p>
+   </article>
+   
+   <article class="dedoc-party-name">
+      <p class="dedoc-party-name" id="dedco_partyname"> {{query.party_name|safe}} </p>
+   </article>
+
+   <article class="dedoc-headnote-container">
+      <p class="dedoc-headnote" id="dedoc_headnote"> <b>Headnote :</b> {{query.headnote}} </p>
+   </article>
+
+   <article class="dedoc-references-container">
+
+      <p class="dedoc-references" id="dedoc_references"> <b>Cases Refered :</b> {{query.references|safe}} </p>
+
+   </article>
+
+   <article class="dedoc-order-container">
+      
+      <p class="dedoc-order"> <b>Judgement:</b> </p>
+      <p class="dedoc-order" id="dedoc_order"> {{query.judgements|safe}} </p>
+   </article>
+
+</section>
+
+{% endblock %}

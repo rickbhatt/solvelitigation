@@ -1,0 +1,119 @@
+ .contact-main-container
+ {
+     display: flex;
+     /* border: 1px solid black; */
+     padding: 20px;
+     justify-content: space-evenly;
+      
+ }
+
+ .contact-form-container
+ {
+    border: 1px solid rgb(204, 204, 204);
+    width: 50%;
+    height: 450px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    box-shadow: 2px 6px 15px #d5d5d5,  -4px -5px 15px #d5d5d5;
+ }
+
+ .contact-us-heading
+{ 
+    color: #289dcf;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.form-container
+{
+    display: flex;
+    /* border: 1px solid black; */
+    flex-wrap: wrap;
+    padding: 15px;
+    justify-content: space-evenly;
+    
+
+   
+}
+
+#field
+{
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0px;
+    width: 100%;
+    
+}
+
+textarea
+{
+    border: 1px solid rgb(204, 204, 204);
+    width: 100%;
+    
+}
+
+#field::placeholder, textarea::placeholder
+{
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+.send-message
+{
+    padding: 10px;
+    text-align: center;
+    background-color: #289dcf;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.send-message:hover
+{
+    background-color: #0088c2;
+
+}
+
+input[type=text]:focus, textarea:focus
+{
+   outline: none;
+
+}
+
+.faq
+{
+    border: 1px solid rgb(204, 204, 204);
+    width: 30%;
+    height: 500px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    box-shadow: 2px 6px 15px #d5d5d5,  -4px -5px 15px #d5d5d5;
+    overflow-y: auto;
+}
+
+.faq-heading
+{
+    color: #289dcf;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.faq-question
+{
+    color: #289dcf;
+    display: block;
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    line-height: 1.4em;
+   
+}

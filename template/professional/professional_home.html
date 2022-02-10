@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional | {{request.user.full_name}} </title>
+
+    <script
+      src="https://kit.fontawesome.com/2b3aa8f23b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/jquery-3.6.0.min.js' %}"
+    ></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/detaildoc.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/civil.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/professional.css' %}" />
+
+    <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
+  </head>
+  <body>
+    <div class="professional-wrapper">
+      <header class="prof-header">
+        <a href="{% url 'home' %}" class="logo-link"
+          ><img
+            class="logo"
+            src="{% static 'images/slvemongramdarkblue.svg' %}"
+            alt="solvelitigation"
+          />
+        </a>
+
+        <a href="{% url 'logout' %}" class="logout-btn">LOGOUT</a>
+      </header>
+      <main class="professional-main-wrapper">
+        <section class="nav-and-other">
+          {% include 'professional/nav_professional.html' %}
+
+          <div class="profile-and-notification">
+            <ul class="pro-and-noti-ul">
+              <li class="pro-and-noti-list">
+                <button class="pro-and-noti-btn">
+                  <i class="fas fa-bell"></i>
+                </button>
+              </li>
+              <li class="pro-and-not-list">
+                <button class="pro-and-noti-btn">
+                  <i class="fas fa-user-circle"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {% block section %} {% endblock %}
+      </main>
+    </div>
+  <!--------------------- SCIRPTS ------------------------------->
+    <script type="text/javascript" src="{% static 'js/detaildoc.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/civil.js' %}"></script>
+
+
+    <!--------------------- SCIRPTS------------------------------->
+
+  </body>
+</html>
