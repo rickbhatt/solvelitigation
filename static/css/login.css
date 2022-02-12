@@ -145,21 +145,6 @@
   box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
-.message-container {
-  background-color: orange;
-
-  border-radius: 25px;
-  padding: 8px 25px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.message-container p {
-  color: white;
-  font-size: 17px;
-  font-family: "Poppins", sans-serif;
-}
-
 @media (max-width: 780px) {
   .login-form-container {
     min-width: 80%;

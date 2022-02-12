@@ -76,9 +76,10 @@ ol[role="list"] {
   border-radius: 25px;
   width: 30vw;
   min-height: 300px;
-  padding: 20px 25px;
+  padding: 3rem 1.5rem;
   box-shadow: 2px 6px 15px #d5d5d5, -4px -5px 15px #d5d5d5;
   margin: auto;
+  gap: 1rem;
 }
 
 .subselection-form {
@@ -97,7 +98,7 @@ ol[role="list"] {
 .form-label {
   /* border: 1px solid red; */
 
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 1.05vw, 1.5rem);
   color: #0a193d;
   font-family: "Karla", sans-serif;
   display: block;
@@ -224,17 +225,11 @@ ol[role="list"] {
   border-radius: 0.2rem;
 } */
 
-.message-container {
-  background-color: rgba(255, 166, 0, 0.1);
-  border: 2px solid rgb(255, 166, 0);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  text-align: center;
-  margin-bottom: 50px;
+.messages {
+  list-style-type: none;
+  list-style: none;
 }
 
-.subselection-message {
-  color: orange;
-  font-size: 1rem;
-  font-family: "Karla", sans-serif;
+.info {
+  color: green;
 }

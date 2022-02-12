@@ -9,6 +9,8 @@
     <title>Solve Litigation | Login</title>
 
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+
 
     <script
       src="https://kit.fontawesome.com/2b3aa8f23b.js"
@@ -42,12 +44,12 @@
 
       <div class="login-main-container">
         {% if messages %}
-        <div class="message-container">
-          {% for message in messages %}
-          <p>{{message}}</p>
-          {% endfor %}
-        </div>
-        {% endif %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
 
         <div class="login-form-container">
           <h3>OTP VERIFICATION</h3>
@@ -101,13 +103,13 @@
       </div>
 
       <div class="login-main-container">
-        {% if messages %}
-        <div class="message-container">
-          {% for message in messages %}
-          <p>{{message}}</p>
-          {% endfor %}
-        </div>
-        {% endif %}
+         {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
         <div class="login-form-container">
           <h3>LOGIN</h3>
           <form action="login" method="POST">

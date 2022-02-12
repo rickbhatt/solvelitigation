@@ -11,7 +11,7 @@ from django.utils.dateparse import parse_datetime
 @shared_task
 def regd_send_email(name, user_email):
     # to the customer
-    template = render_to_string('template/account/regd_success_email.html', {'name': name})
+    template = render_to_string('regd_success_email.html', {'name': name})
     email = EmailMessage(
         'Registration Successfull',                                   #subject
         template,                                                      # body

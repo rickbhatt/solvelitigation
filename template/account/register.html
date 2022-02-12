@@ -14,6 +14,8 @@
     ></script>
 
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+
 
     <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
 
@@ -43,13 +45,13 @@
       </div>
 
       <div class="regsiter-main-container">
-        {% if messages %}
-        <div class="register-message-container">
-          {% for message in messages %}
-          <p>{{message}}</p>
-          {% endfor %}
-        </div>
-        {% endif %}
+         {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
 
         <div class="register-otp-form-container">
           <h3>OTP VERIFICATION</h3>
@@ -105,13 +107,13 @@
       </div>
 
       <div class="register-main-container">
-        {% if messages %}
-        <div class="register-message-container">
-          {% for message in messages %}
-          <p>{{message}}</p>
-          {% endfor %}
-        </div>
-        {% endif %}
+         {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
 
         <div class="register-form-container">
           <form id="regForm" method="POST">

@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-56svcpo21fjbbl_)+e*4vkh^=xmd1d^^!y!ry_8+b01rxiq9v2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['solvelitigation.com', 'www.solvelitigation.com' 'localhost', '127.0.0.1','0f06-103-38-89-210.ngrok.io']
+ALLOWED_HOSTS = ['solvelitigation.com', 'www.solvelitigation.com' 'localhost', '127.0.0.1']
 
 
 # Application definition

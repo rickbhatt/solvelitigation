@@ -55,14 +55,14 @@ def sub_selection(request):
 
                         if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True).exists():
 
-                            messages.info(request, "The Subscription is already active.")
+                            messages.info(request, "This Subscription is already active.")
                             return redirect('sub-selection')
                         else:
 
                             subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
                             subscription_obj.save()
 
-                            messages.info(request, "the payement was successful")
+                            messages.success(request, "the payement was successful")
                             return redirect('sub-selection')
                         
                     elif duration == 'quaterly':
@@ -82,7 +82,7 @@ def sub_selection(request):
                             subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
                             subscription_obj.save()
 
-                            messages.info(request, "the payement was successful")
+                            messages.success(request, "the payement was successful")
                             return redirect('sub-selection')
 
                     else:
@@ -102,12 +102,12 @@ def sub_selection(request):
                             subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
                             subscription_obj.save()
 
-                            messages.info(request, "the payement was successful")
+                            messages.success(request, "the payement was successful")
                             return redirect('sub-selection')
                             
                 else:
 
-                    messages.info(request, 'The user does not exist. Please register as Professional to opt for the subscription')
+                    messages.warning(request, 'The user does not exist. Please register as Professional to opt for the subscription')
                     return redirect('sub-selection')
         
         except Exception as e:

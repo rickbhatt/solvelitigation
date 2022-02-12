@@ -123,7 +123,7 @@ def registerpage(request):
             
             send_to_developer.delay(path, date_of_record, error)
             print("\nthe exception is comming from regsiterpage : ", e, "\n")
-            messages.info(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
+            messages.error(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
             return redirect('register')  
 
     else:
@@ -266,7 +266,7 @@ def change_password(request, token):
             user_id = request.POST.get('user')
 
             if user_id is None:
-                messages.info(request, 'User does not exist.')
+                messages.error(request, 'User does not exist.')
                 return redirect(request.path_info)
             else:
                 if new_password != con_password:
@@ -277,7 +277,7 @@ def change_password(request, token):
                     user_obj.set_password(new_password)
                     user_obj.save()
 
-                    messages.info(request, 'Password changed successfuly')
+                    messages.success(request, 'Password changed successfuly')
 
                     return redirect('login')
 
@@ -294,7 +294,7 @@ def change_password(request, token):
         
         send_to_developer.delay(path, date_of_record, error)
         print("\nthe exception is comming from forget_password : ", e, "\n")
-        messages.info(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
+        messages.error(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
 
         print("this is the exception from chamge_password : ", e)
         return redirect(request.path_info)
@@ -324,7 +324,7 @@ def forget_password(request):
                 messages.info(request, f'An email has been sent to {user_obj}.')
                 return redirect('forget-password')  
             else:
-                messages.info(request, 'User does not exist')
+                messages.error(request, 'User does not exist')
                 return redirect('forget-password')   
 
     except Exception as e:
@@ -337,7 +337,7 @@ def forget_password(request):
         
         send_to_developer.delay(path, date_of_record, error)
         print("\nthe exception is comming from forget_password : ", e, "\n")
-        messages.info(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
+        messages.error(request, 'We are facing some problem. We shall rectify it soon. Sorry for inconvenience caused.')
         return redirect('forget-password')  
     
     return render(request, 'account/fp_email_form.html')

@@ -167,21 +167,6 @@
   transform: scale(1.01, 1.01);
 }
 
-.register-message-container {
-  background-color: orange;
-
-  border-radius: 25px;
-  padding: 8px 25px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.register-message-container p {
-  color: white;
-  font-size: 17px;
-  font-family: "Poppins", sans-serif;
-}
-
 /* for select only */
 
 .select-font {
