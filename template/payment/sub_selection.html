@@ -36,7 +36,7 @@
                 {% endfor %}
             </ul>
          {% endif %}
-            <form class="subselection-form"  method="post">
+            <form class="subselection-form" action="pay" method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <input
@@ -67,19 +67,20 @@
                   
                     <select class="subselection-select-input" name="duration" id="duration" required>
                       <option value="0" selected hidden disabled>Subscription Duration...</option>
-                      <option value="monthly">Monthly</option>
-                      <option value="quaterly">Quaterly (3 months)</option>
-                      <option value="hf">Half Yearly (6 months)</option>
+                      <option value="1">For 1 Month</option>
+                      <option value="3">For 3 Months</option>
+                      <option value="6">For 6 Months</option>
                     </select>
                     <span class="custom-arrow"></span>
                 </div>
                 
                 
                 <div class="selection-btn-container">
-                   <button type="submit" class="subselection-proceed-btn">Proceed</button>
+                   <button id="rzp-button1" type="submit" class="subselection-proceed-btn">Proceed to Pay</button>
                    <a href="/subscription/#professional" class="subselection-cancel-btn">Cancel</a>
                 </div>
             </form>
+            
         </section>
     </main>
   </div>

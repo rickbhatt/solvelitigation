@@ -1,8 +1,15 @@
+from time import strftime
+from urllib import response
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from django.contrib.sites.shortcuts import get_current_site
+
+from django.views.decorators.csrf import csrf_exempt
+
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 from account.models import CustomUser
+import payment
 
 from .models import ServiceProduct, UserSubscription
 
@@ -12,11 +19,21 @@ from django.contrib import messages
 
 from datetime import datetime, timedelta
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
+
+# ***************** FOR PAYMENTS ***********************
+from django.conf import settings
+import razorpay
+
+# ****************** END FOR PAYMENTS *********************
 
 
 def sub_selection(request):
+        return render(request, 'payment/sub_selection.html')
 
+
+def pay(request):
+    
     if request.method == 'POST':
 
         try:
@@ -27,6 +44,8 @@ def sub_selection(request):
             service = request.POST.get('category')
 
             subscribed_on = datetime.now()
+
+            client = razorpay.Client(auth=(settings.RAZORPAY_ID , settings.RAZORPAY_ACCOUNT_ID))
 
             if cust_email is None or cust_email == "":
 
@@ -44,7 +63,7 @@ def sub_selection(request):
 
                     user_instance = CustomUser.objects.get(email = cust_email)
                 
-                    if duration == 'monthly':
+                    if duration == '1':
 
                         expiry = subscribed_on + timedelta(days=30)
 
@@ -53,19 +72,61 @@ def sub_selection(request):
 
                         price = service_choosen.monthly_price * 100
 
+                        notes = {
+                            'order-type': 'This is a subsciption order'
+                        }
+
+                        callback_url = 'http://' + str(get_current_site(request))+"/payment/handlerequest"
+
+                        print("this is the call back url : ",callback_url)
+
                         if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True).exists():
 
                             messages.info(request, "This Subscription is already active.")
                             return redirect('sub-selection')
                         else:
 
-                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
+                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, 
+                            amount = price/100,subscription_duration = duration, subscribed_on = subscribed_on,expiring_on = expiry, is_active = True)
                             subscription_obj.save()
 
-                            messages.success(request, "the payement was successful")
-                            return redirect('sub-selection')
+                            razorpay_order = client.order.create({
+                            "amount": price,
+                            "currency": "INR",
+                            "notes": notes,
+                            "receipt": subscription_obj.payment_id,
+                            "payment_capture":'0',
+                            })
+
+                            order_status = razorpay_order['status']
+
+                            if order_status  == 'created':
+                            
+                                subscription_obj.razorpay_order_id = razorpay_order['id']
+
+                                subscription_obj.save()
+                                context = {
+                                    'order': str(service_choosen) + 'M', 
+                                    'order_id': razorpay_order['id'],
+                                    'orderId': subscription_obj.razorpay_order_id,
+                                    'price_summary': price/100,
+                                    'price': price,
+                                    'razorpay_merchant_id': settings.RAZORPAY_ID,
+                                    'callback_url': callback_url,
+                                    'service': service_choosen,
+                                    'duration':subscription_obj.get_subscription_duration_display(),
+                                    "user_name":user_instance.full_name,
+                                    "user_phone": user_instance.phone_no,
+                                    "user_email":user_instance.email,
+
+                                }
+
+                                return render(request, 'payment/payment_summary.html', context)
+                            else:
+                                messages.error(request, "Due to some issues we are unable to process the payment request. Please try again after some time.")
+                                return redirect('sub-selection')
                         
-                    elif duration == 'quaterly':
+                    elif duration == '3':
 
                         expiry = subscribed_on + timedelta(days=90)
 
@@ -115,34 +176,51 @@ def sub_selection(request):
             messages.error(request, "We are facing some problems. We regret the inconvinience caused.")
             return redirect('sub-selection')
     else:
-        return render(request, 'payment/sub_selection.html')
+        return HttpResponseBadRequest()
 
+@csrf_exempt
+def handlerequest(request):
 
-@login_required(login_url='login')
-def personal(request):
+    client = razorpay.Client(auth=(settings.RAZORPAY_ID , settings.RAZORPAY_ACCOUNT_ID))
 
-    subuser = request.user
+    if request.method == 'POST':
 
-    sub = UserSubscription.objects.filter(user = subuser, is_active = True)
+        try:
+            razorpay_payment_id = request.POST.get('razorpay_payment_id', '')
+            order_id =  request.POST.get('razorpay_order_id', '')
+            signature = request.POST.get('razorpay_signature', '')
+            params_dict={
+                "razorpay_payment_id": razorpay_payment_id,
+                "razorpay_order_id":  order_id,
+                "razorpay_signature":  signature
+                }
+            try:
+                sub_obj = UserSubscription.objects.get(razorpay_order_id = order_id)
+            except:
+                return HttpResponse('505 not found')
+            sub_obj.razorpay_payment_id = razorpay_payment_id
+            sub_obj.razorpay_signature = signature
 
-    print('\n',subuser)
-        
-    for cust in sub:
-        
-        if cust.service_choosen.code == 11:
-            print('Civil available')
-        if cust.service_choosen.code == 21:
-            print('Coorprate available')
+            result = client.utility.verify_payment_signature(params_dict)
+            
+            if result == None:
+                amount = sub_obj.amount*100
+                client.payment.capture(razorpay_payment_id, amount)
+                print("the result==None condition has been entered")
+                sub_obj.paid = True
+                sub_obj.save()
+                return redirect('successful')
+            else:
+                sub_obj.delete()
+                messages.error(request, "Your payment was unsuccesful. Please try re-subscribing.")
+                return redirect('sub-selection')
+        except Exception as e:
+            print(e)
+            sub_obj.delete()
+            messages.error(request,"We are facing some problems. If the payment is successful your subscription will automatically activated.")
+            return redirect('sub-selection')
 
-        if cust.service_choosen.code == 31:
-            print('Criminal available')
-
-        if cust.service_choosen.code == 41:
-            print('Service available')
-
-        if cust.service_choosen.code == 51:
-            print('Taxation available')
-      
-     
-
-    return render(request, 'testpage.html', {'subuser': subuser, 'sub': sub})
+    else:
+        return HttpResponseBadRequest()
+def successpay(request):
+    return render(request, 'payment/payment_successful.html')

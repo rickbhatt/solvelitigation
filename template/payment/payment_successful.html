@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solve Litigation</title>
+
+    <script
+      src="https://kit.fontawesome.com/2b3aa8f23b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/jquery-3.6.0.min.js' %}"
+    ></script>
+
+    <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
+</head>
+<body>
+    <p>Payment was successful <i class="fas fa-check-circle"></i></p>
+    <p>Your Payment Id is : {{payment_id}} </p>
+</body>
+</html>

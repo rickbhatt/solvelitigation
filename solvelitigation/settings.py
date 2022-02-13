@@ -205,5 +205,5 @@ EMAIL_USE_TLS = True
 
 ######## PAYMENTS GATEWAY SETTINGS #############
 
-razorpay_id = "rzp_test_VRFh4KweOPMciq"
-razorpay_account_id = "IeCvrLZRaONo2QEI1PlEHoEW"
+RAZORPAY_ID = "rzp_test_RM1vYZ0rxbhhwK"
+RAZORPAY_ACCOUNT_ID = "6rXTnFiJ60EEOimO9ywDhhGB"
