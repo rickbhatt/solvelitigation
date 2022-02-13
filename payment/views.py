@@ -47,6 +47,12 @@ def pay(request):
 
             client = razorpay.Client(auth=(settings.RAZORPAY_ID , settings.RAZORPAY_ACCOUNT_ID))
 
+            notes = {
+                    'order-type': 'This is a subsciption order'
+                    }
+
+            callback_url = 'http://' + str(get_current_site(request))+"/payment/handlerequest"
+
             if cust_email is None or cust_email == "":
 
                 messages.error(request, "Enter Your Registered Email First")
@@ -72,22 +78,20 @@ def pay(request):
 
                         price = service_choosen.monthly_price * 100
 
-                        notes = {
-                            'order-type': 'This is a subsciption order'
-                        }
 
-                        callback_url = 'http://' + str(get_current_site(request))+"/payment/handlerequest"
-
-                        print("this is the call back url : ",callback_url)
-
-                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True).exists():
+                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True, paid=True).exists():
 
                             messages.info(request, "This Subscription is already active.")
                             return redirect('sub-selection')
                         else:
 
+                            if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = False, paid=False).exists():
+
+                                del_sub_obj = UserSubscription.objects.get(user = user_instance,service_choosen = service_choosen)
+                                del_sub_obj.delete()
+
                             subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, 
-                            amount = price/100,subscription_duration = duration, subscribed_on = subscribed_on,expiring_on = expiry, is_active = True)
+                            amount = price/100,subscription_duration = duration, subscribed_on = subscribed_on,expiring_on = expiry)
                             subscription_obj.save()
 
                             razorpay_order = client.order.create({
@@ -106,7 +110,7 @@ def pay(request):
 
                                 subscription_obj.save()
                                 context = {
-                                    'order': str(service_choosen) + 'M', 
+                                    'order': str(service_choosen) + 'Q', 
                                     'order_id': razorpay_order['id'],
                                     'orderId': subscription_obj.razorpay_order_id,
                                     'price_summary': price/100,
@@ -135,16 +139,57 @@ def pay(request):
 
                         price = service_choosen.quaterly_price * 100
 
-                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True).exists():
+                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True, paid = True).exists():
 
                             messages.info(request, "The Subscription is already active.")
                             return redirect('sub-selection')
                         else:
-                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
+                            
+                            if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = False, paid=False).exists():
+
+                                del_sub_obj = UserSubscription.objects.get(user = user_instance,service_choosen = service_choosen)
+                                del_sub_obj.delete()
+
+                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, 
+                            amount = price/100,subscription_duration = duration, subscribed_on = subscribed_on,expiring_on = expiry)
                             subscription_obj.save()
 
-                            messages.success(request, "the payement was successful")
-                            return redirect('sub-selection')
+                            razorpay_order = client.order.create({
+                            "amount": price,
+                            "currency": "INR",
+                            "notes": notes,
+                            "receipt": subscription_obj.payment_id,
+                            "payment_capture":'0',
+                            })
+
+
+                            order_status = razorpay_order['status']
+
+                            if order_status  == 'created':
+                            
+                                subscription_obj.razorpay_order_id = razorpay_order['id']
+
+                                subscription_obj.save()
+                                context = {
+                                    'order': str(service_choosen) + 'M', 
+                                    'order_id': razorpay_order['id'],
+                                    'orderId': subscription_obj.razorpay_order_id,
+                                    'price_summary': price/100,
+                                    'price': price,
+                                    'razorpay_merchant_id': settings.RAZORPAY_ID,
+                                    'callback_url': callback_url,
+                                    'service': service_choosen,
+                                    'duration':subscription_obj.get_subscription_duration_display(),
+                                    "user_name":user_instance.full_name,
+                                    "user_phone": user_instance.phone_no,
+                                    "user_email":user_instance.email,
+
+                                }
+
+                                return render(request, 'payment/payment_summary.html', context)
+                            else:
+                                messages.error(request, "Due to some issues we are unable to process the payment request. Please try again after some time.")
+                                return redirect('sub-selection')
 
                     else:
 
@@ -155,16 +200,53 @@ def pay(request):
                         
                         price = service_choosen.hf_price * 100
 
-                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True).exists():
+                        if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = True, paid = True).exists():
 
                             messages.info(request, "The Subscription is already active.")
                             return redirect('sub-selection')
                         else:
-                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, subscribed_on = subscribed_on, expiring_on = expiry, is_active = True)
+                            if UserSubscription.objects.filter(user = user_instance,service_choosen = service_choosen, is_active = False, paid=False).exists():
+
+                                del_sub_obj = UserSubscription.objects.get(user = user_instance,service_choosen = service_choosen)
+                                del_sub_obj.delete()
+
+                            subscription_obj = UserSubscription(user = user_instance, service_choosen = service_choosen, 
+                            amount = price/100,subscription_duration = duration, subscribed_on = subscribed_on,expiring_on = expiry)
                             subscription_obj.save()
 
-                            messages.success(request, "the payement was successful")
-                            return redirect('sub-selection')
+                            razorpay_order = client.order.create({
+                            "amount": price,
+                            "currency": "INR",
+                            "notes": notes,
+                            "receipt": subscription_obj.payment_id,
+                            "payment_capture":'0',
+                            })
+
+
+                            order_status = razorpay_order['status']
+
+                            if order_status  == 'created':
+                            
+                                subscription_obj.razorpay_order_id = razorpay_order['id']
+
+                                subscription_obj.save()
+                                context = {
+                                    'order': str(service_choosen) + 'M', 
+                                    'order_id': razorpay_order['id'],
+                                    'orderId': subscription_obj.razorpay_order_id,
+                                    'price_summary': price/100,
+                                    'price': price,
+                                    'razorpay_merchant_id': settings.RAZORPAY_ID,
+                                    'callback_url': callback_url,
+                                    'service': service_choosen,
+                                    'duration':subscription_obj.get_subscription_duration_display(),
+                                    "user_name":user_instance.full_name,
+                                    "user_phone": user_instance.phone_no,
+                                    "user_email":user_instance.email,
+
+                                }
+
+                                return render(request, 'payment/payment_summary.html', context)
                             
                 else:
 
@@ -194,10 +276,12 @@ def handlerequest(request):
                 "razorpay_order_id":  order_id,
                 "razorpay_signature":  signature
                 }
+                
             try:
                 sub_obj = UserSubscription.objects.get(razorpay_order_id = order_id)
             except:
                 return HttpResponse('505 not found')
+
             sub_obj.razorpay_payment_id = razorpay_payment_id
             sub_obj.razorpay_signature = signature
 
@@ -206,8 +290,9 @@ def handlerequest(request):
             if result == None:
                 amount = sub_obj.amount*100
                 client.payment.capture(razorpay_payment_id, amount)
-                print("the result==None condition has been entered")
                 sub_obj.paid = True
+                sub_obj.payment_status = 1
+                sub_obj.is_active = True
                 sub_obj.save()
                 return redirect('successful')
             else:
@@ -216,7 +301,6 @@ def handlerequest(request):
                 return redirect('sub-selection')
         except Exception as e:
             print(e)
-            sub_obj.delete()
             messages.error(request,"We are facing some problems. If the payment is successful your subscription will automatically activated.")
             return redirect('sub-selection')
 
