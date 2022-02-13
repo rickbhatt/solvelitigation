@@ -17,7 +17,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     age = models.IntegerField(null=True)
     state = models.CharField(max_length=255)
     regd_as = models.CharField(max_length=255)
-    professional_opted_for = models.CharField(max_length=255, null=True, blank= True)
     date_joined = models.DateTimeField(default=timezone.now)
 
     # subscribtion_status = models.BooleanField(default=False)
