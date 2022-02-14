@@ -7,7 +7,7 @@
   <nav class="professional-nav">
     <ul class="prof-nav-ul">
       <li class="prof-nav-list"><a href="{% url 'civil' %}" class="prof-nav-link">CIVIL</a></li>
-      <li class="prof-nav-list"><a href="" class="prof-nav-link">CRIMINAL</a></li>
+      <li class="prof-nav-list"><a href="{% url 'criminal' %}" class="prof-nav-link">CRIMINAL</a></li>
       <li class="prof-nav-list"><a href="" class="prof-nav-link">SERVICE</a></li>
       <li class="prof-nav-list"><a href="" class="prof-nav-link">TAXATION</a></li>
       <li class="prof-nav-list"><a href="" class="prof-nav-link">CORPORATE</a></li>
@@ -28,7 +28,7 @@
       {% for sub in usersub %}
     
         {% if sub.service_choosen.code == 21 %}
-              <li class="prof-nav-list"><a href="" class="prof-nav-link">CRIMINAL</a></li>
+              <li class="prof-nav-list"><a href="{% url 'criminal' %}" class="prof-nav-link">CRIMINAL</a></li>
         {% endif %} 
       {% endfor %}
       

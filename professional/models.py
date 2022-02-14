@@ -79,8 +79,8 @@ category= (
     ('zimma', 'zimma'),
 )
 
-court_type = (
-    
+INSTITUTION = (
+    ('Commission', 'Commission'),
     ('The Supreme Court of India', 'The Supreme Court of India'),
     ('The Allahabad High Court', 'Allahabad High Court'),
     ('The Andhra Pradesh High Court', 'Andhra Pradesh High Court'),
@@ -104,29 +104,44 @@ court_type = (
     ('The Rajasthan High Court', 'Rajasthan High Court'),
     ('The Telangana High Court', 'Telangana High Court'),
     ('The Tripura High Court', 'Tripura High Court'),
-    ('The Uttarakhand High Court', 'Uttarakhand High Court')
-)
-
-tribunal_list = (
-
-    ('Industrial Tribunal', 'Industrial Tribunal'),
-    ('Income Tax Appellate Tribunal', 'Income Tax Appellate Tribunal'),
-    ('Customs, Excise and Service Tax Appellate Tribunal', 'Customs, Excise and Service Tax Appellate Tribunal'),
-    ('Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act', 'Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act'),
+    ('The Uttarakhand High Court', 'Uttarakhand High Court'),
+    
     ('Administrative Tribunal', 'Administrative Tribunal'),
+    ('Appellate Tribunal for Electricity', 'Appellate Tribunal for Electricity'),
+    ('Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act', 'Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act'),
+    ('Armed Forces Tribunal', 'Armed Forces Tribunal'),
+    ('Customs, Excise and Service Tax Appellate Tribunal', 'Customs, Excise and Service Tax Appellate Tribunal'),
+    ('Debt Recovery Tribunal', 'Debt Recovery Tribunal'),
+    ('Income Tax Appellate Tribunal', 'Income Tax Appellate Tribunal'),
+    ('Industrial Tribunal', 'Industrial Tribunal'),
+    ('National Companies Law Appellate Tribunal', 'National Companies Law Appellate Tribunal'),
+    ('National Consumer Disputes Redressal Commission', 'National Consumer Disputes Redressal Commission'),
+    ('National Green Tribunal', 'National Green Tribunal'),
     ('Railway Claims Tribunal', 'Railway Claims Tribunal'),
     ('Securities Appellate Tribunal', 'Securities Appellate Tribunal'),
-    ('Debt Recovery Tribunal', 'Debt Recovery Tribunal'),
     ('The Telecom Disputes Settlement and Appellate Tribunal', 'The Telecom Disputes Settlement and Appellate Tribunal'),
-    (' National Companies Law Appellate Tribunal', ' National Companies Law Appellate Tribunal'),
-    ('Industrial Tribunal', 'Industrial Tribunal'),
-    ('National Consumer Disputes Redressal Commission', 'National Consumer Disputes Redressal Commission'),
-    ('Appellate Tribunal for Electricity', 'Appellate Tribunal for Electricity'),
-    ('Armed Forces Tribunal', 'Armed Forces Tribunal'),
-    ('National Green Tribunal', 'National Green Tribunal'),
-
-
 )
+
+# tribunal_list = (
+
+#     ('Industrial Tribunal', 'Industrial Tribunal'),
+#     ('Income Tax Appellate Tribunal', 'Income Tax Appellate Tribunal'),
+#     ('Customs, Excise and Service Tax Appellate Tribunal', 'Customs, Excise and Service Tax Appellate Tribunal'),
+#     ('Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act', 'Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act'),
+#     ('Administrative Tribunal', 'Administrative Tribunal'),
+#     ('Railway Claims Tribunal', 'Railway Claims Tribunal'),
+#     ('Securities Appellate Tribunal', 'Securities Appellate Tribunal'),
+#     ('Debt Recovery Tribunal', 'Debt Recovery Tribunal'),
+#     ('The Telecom Disputes Settlement and Appellate Tribunal', 'The Telecom Disputes Settlement and Appellate Tribunal'),
+#     (' National Companies Law Appellate Tribunal', ' National Companies Law Appellate Tribunal'),
+#     ('Industrial Tribunal', 'Industrial Tribunal'),
+#     ('National Consumer Disputes Redressal Commission', 'National Consumer Disputes Redressal Commission'),
+#     ('Appellate Tribunal for Electricity', 'Appellate Tribunal for Electricity'),
+#     ('Armed Forces Tribunal', 'Armed Forces Tribunal'),
+#     ('National Green Tribunal', 'National Green Tribunal'),
+
+
+# )
 
 citation_type = (
 
@@ -148,11 +163,9 @@ citation_type = (
 
 class Citation(models.Model):
    
-    court_name =models.CharField(max_length=255, choices=court_type ,null=True, blank= True)
+    institution_name =models.CharField(max_length=255, choices=INSTITUTION ,null=True, blank= True)
 
-    tribunals = models.CharField(max_length=255, choices= tribunal_list,blank=True ,null=True)
-
-    commission= BooleanField(default= False) 
+    # tribunals = models.CharField(max_length=255, choices= tribunal_list,blank=True ,null=True)
 
     apelLate_type = models.CharField(max_length=255,null=True,help_text="required")
 

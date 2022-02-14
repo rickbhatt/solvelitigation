@@ -1,0 +1,277 @@
+{% extends 'professional/professional_home.html' %}
+
+{% load static %}
+
+{% block section %}
+
+
+<section class="criminal-search-container">
+    <form action="criminalsearch" method="post" class="criminal-search-bar" id="criminal_search_form">
+        {% csrf_token %}
+            <input class="criminal-search-input" type="text" placeholder="search by advocate name, party name, judge name, date of order,  etc.." name="criminal-search" id="criminal_search">
+
+            <button type="submit" class="criminal-search-button" ><span class="criminal-search-icon"><i class="fas fa-search"></i></span></button>
+    </form>
+</section>
+
+<section class="criminal-main-container">
+
+
+    <!-- SUB LAW TYPE -->
+    <article class="criminal-sub-law-type-nav">
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="arb" value="arbitration">
+        
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="landacq" value="land acquisation">
+        
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="comcourt" value="comercial court">
+        
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="others" value="others">
+
+        <ul class="criminal-sub-law-type-ul">
+            <li class="criminal-sub-law-type-list">
+
+                <label for="arb" class="criminal-sub-law-type-label">  Arbitration
+                   </label>
+            </li>
+            <li class="criminal-sub-law-type-list">
+                <label for="landacq" class="criminal-sub-law-type-label">Land Acquisation</label>
+            </li>
+            <li class="criminal-sub-law-type-list">
+                <label for="comcourt" class="criminal-sub-law-type-label">Comercial Court</label>
+            </li>
+            <li class="criminal-sub-law-type-list">
+                <label for="others" class="criminal-sub-law-type-label">Others</label>
+            </li>
+        </ul>
+
+  
+    </article>
+    <!-- END OF SUB LAW TYPE -->
+
+    <!-- COURT -->
+    <article class="criminal-court-nav">
+        
+        <input class="criminal-court" type="radio" name="criminal-court" id="com" value="Commission">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="sc" value="The Supreme Court of India">
+        
+        <input class="criminal-court" type="radio" name="criminal-court" id="alhc" value="Allahabad High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="aphc" value="Andhra Pradesh High Court">
+
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="bhc" value="Bombay High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="calhc" value="Calcutta High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="chhc" value="Chhattisgarh High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="dhc" value="Delhi High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="gujhc" value="Gujarat High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="guwhc" value="Guwahati High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="hphc" value="Himachal Pradesh High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="jkhc" value="Jammu and Kashmir High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="jhahc" value="Jharkhand High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="kahc" value="Karnataka High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="kehc" value="Kerala High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="madhyahc" value="Madhya Pradesh High Court">
+        
+        <input class="criminal-court" type="radio" name="criminal-court" id="madrashc" value="Madras High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="manhc" value="Manipur High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="meghhc" value="Meghalaya High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="ohc" value="Odisha High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="phc" value="Patna High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="rhc" value="Rajasthan High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="tehc" value="Telangana High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="trhc" value="Tripura High Court">
+
+        <input class="criminal-court" type="radio" name="criminal-court" id="uhc" value="Uttarakhand High Court">
+
+        <ul class="criminal-court-ul"  data-courtvisilble="false">
+            
+            <li class="criminal-court-list">
+                <label for="com" class="criminal-criminal-court-label">Commission</label>
+            </li>
+            
+            <li class="criminal-court-list">
+                <label for="sc" class="criminal-criminal-court-label">The Supreme Court of India</label>
+            </li>
+            
+            <li class="criminal-court-list">
+               <label for="alhc" class="criminal-criminal-court-label">The Allahabad High Court</label>
+            </li>
+            
+            <li class="criminal-court-list">
+                <label for="aphc" class="criminal-criminal-court-label">The Andhra Pradesh High Court</label>
+            </li>
+            
+            <li class="criminal-court-list">
+                <label for="bhc" class="criminal-criminal-court-label">The Bombay High Court</label>
+            </li>
+
+             <li class="criminal-court-list">
+                <label for="calhc" class="criminal-criminal-court-label">The Calcutta High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="chhc" class="criminal-criminal-court-label">The Chhattisgarh High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="dhc" class="criminal-criminal-court-label">The Delhi High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="gujhc" class="criminal-criminal-court-label">The Gujarat High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="guwhc" class="criminal-criminal-court-label">The Guwahati High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="hphc" class="criminal-criminal-court-label">The Himachal Pradesh High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="jkhc" class="criminal-criminal-court-label">The Jammu and Kashmir High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="jhahc" class="criminal-criminal-court-label">The Jharkhand High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="kahc" class="criminal-criminal-court-label">The Karnataka High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="kehc" class="criminal-criminal-court-label">The Kerala High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="madhyahc" class="criminal-criminal-court-label">The Madhya Pradesh High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="madrashc" class="criminal-criminal-court-label">The Madhya Pradesh High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="manhc" class="criminal-criminal-court-label">The Manipur High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="meghhc" class="criminal-criminal-court-label">The Meghalaya High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="ohc" class="criminal-criminal-court-label">The Odisha High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="phc" class="criminal-criminal-court-label">The Patna High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="rhc" class="criminal-criminal-court-label">The Rajasthan High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="tehc" class="criminal-criminal-court-label">The Telangana High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="trhc" class="criminal-criminal-court-label">The Tripura High Court</label>
+            </li>
+
+            <li class="criminal-court-list">
+                <label for="uhc" class="criminal-criminal-court-label">The Uttarakhand High Court</label>
+            </li>
+        </ul>
+    </article>
+    <!-- END OF COURT -->
+
+    <!-- LAW CATEGORY -->
+    <article class="criminal-category-nav">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="limitation" value="limitation" >
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="ngteq" value="negative equality">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="review" value="review">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="sprf" value="special relief">
+        
+        <input class="criminal-category" type="radio" name="criminal-category" id="eod" value="execution of decree">
+   
+        <input class="criminal-category" type="radio" name="criminal-category" id="od" value="od/ss/rd">
+        
+        <input class="criminal-category" type="radio" name="criminal-category" id="bindpre" value="binding precedent">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="cont" value="contempt">
+     
+        
+        <ul class="criminal-category-ul" data-categoryvisible="false">
+
+            <li class="criminal-category-list">
+                <label for="bindpre" class="criminal-law-category-label">Binding Precedent</label>
+            </li>
+
+            <li class="criminal-category-list">
+                <label for="cont" class="criminal-law-category-label">Contempt</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="eod" class="criminal-law-category-label">Execution of Decree</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="limitation" class="criminal-law-category-label">Limitation</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="ngteq" class="criminal-law-category-label">Ngetaive Equality</label>
+            </li>
+
+            <li class="criminal-category-list">
+                <label for="od" class="criminal-law-category-label">Obitor Dicta/ Sub Silenso/ Ratio Decidendi</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="review" class="criminal-law-category-label">Review</label>
+            </li>
+
+            <li class="criminal-category-list">
+                <label for="sprf" class="criminal-law-category-label">Special Relief</label>
+            </li>
+
+        </ul>
+    </article>
+    <!-- END LAW CATEGORY -->
+
+    <!-- CITATION AREA -->
+    <article id="criminalqueryResult" class="criminal-citation-container">
+
+
+    </article>
+
+    <!-- END OF CITATION -->
+</section>
+
+{% endblock %}

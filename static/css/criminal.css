@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/***************************  FOR SEARCH BAR  ***************************/
+
+.criminal-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.criminal-search-bar {
+  width: 100%;
+  max-width: 43.7rem;
+  display: flex;
+  align-items: center;
+  border-radius: 3.75rem;
+  border: 2px solid rgba(32, 31, 70, 1);
+  /* padding: 0.625rem 1.25rem; */
+}
+
+.criminal-search-input {
+  outline: none;
+  background-color: transparent;
+  height: 100%;
+  flex: 1;
+  border: 0;
+  padding: 0.625rem 1.25rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.4rem);
+  color: #000;
+  font-family: "Karla", sans-serif;
+}
+
+.criminal-search-input::placeholder {
+  color: #000;
+  font-family: "Karla", sans-serif;
+}
+
+.criminal-search-input:focus,
+.criminal-search-input:active {
+  outline: none;
+  background: transparent;
+}
+
+.criminal-search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  outline: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgba(32, 31, 70, 1);
+  cursor: pointer;
+}
+
+.criminal-search-icon {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 2rem);
+}
+
+/*************************** END FOR SEARCH BAR  ***************************/
+
+/***************************  FOR CONTENTS  ***************************/
+.criminal-main-container {
+  /* border: 2px solid #000; */
+  display: grid;
+  grid-template-columns: 15% 15% 15% 50%;
+  gap: 1rem;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.criminal-sub-law-type-list,
+.criminal-court-list,
+.criminal-category-list {
+  list-style: none;
+  list-style-type: none;
+}
+
+.criminal-sub-law-type-nav,
+.criminal-court-nav,
+.criminal-category-nav,
+.criminal-citation-container {
+  border: 2px solid #000;
+  height: 100%;
+  padding-block: 0.9rem;
+  padding-inline: 0.5rem;
+  overflow-x: hidden;
+}
+
+.criminal-sub-law-type-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.criminal-court-ul {
+  display: none;
+}
+
+.criminal-court-ul[data-courtvisilble="true"] {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.criminal-category-ul {
+  display: none;
+}
+
+.criminal-category-ul[data-categoryvisible="true"] {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.criminal-citation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.criminal-title {
+  font-family: "Karla", sans-serif;
+  font-size: clamp(0.8rem, 1.02vw, 1.5rem);
+  text-decoration: none;
+  color: rgb(2, 103, 218);
+}
+
+.criminal-sub-law-type,
+.criminal-court,
+.criminal-category {
+  display: none;
+}
+
+.criminal-headnote {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.02vw, 1.2rem);
+  /* color: green; */
+}
+
+.bottom-bar {
+  margin-top: 0.6rem;
+  border-bottom: 2px solid rgb(153, 0, 0);
+}
+.no-citation-found {
+  font-size: 2rem;
+  margin: auto;
+  color: red;
+  font-family: "Karla", sans-serif;
+}
+
+/* BUTTONS SECTION */
+.criminal-sub-law-type-label,
+.criminal-criminal-court-label,
+.criminal-law-category-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Karla", sans-serif;
+  font-size: clamp(0.8rem, 1.03vw, 1.2rem);
+  /* background-color: rgba(194, 205, 255, 1); */
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 0.2rem;
+  padding: 0.8rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+/* END FOR BUTTONS */
+
+/* THIS IS FOR ACTIVE STATE CONTROLLED BY JS */
+.criminal-active {
+  background-color: #000;
+  color: #fff;
+}
+
+/* THIS IS FOR ACTIVE STATE CONTROLLED BY JS */

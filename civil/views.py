@@ -24,7 +24,7 @@ def civil_home(request):
       get_civil_court = request.POST.get('civilcourt[]')
       get_civil_category = request.POST.get('civilCategory[]')
 
-      query = Citation.objects.values().filter(law_type__icontains ='civil' ,sub_law_type__icontains=  civil_sub_law, court_name__icontains = get_civil_court, law_category__icontains =  get_civil_category).order_by('-date_of_order')
+      query = Citation.objects.values().filter(law_type__icontains ='civil' ,sub_law_type__icontains=  civil_sub_law, institution_name__icontains = get_civil_court, law_category__icontains =  get_civil_category).order_by('-date_of_order')
 
       if len(query) > 0:
 
@@ -42,7 +42,7 @@ def civil_home(request):
     else:
       subuser = request.user
 
-      subscription = UserSubscription.objects.filter(user = subuser, is_active = True)
+      subscription = UserSubscription.objects.filter(user = subuser, is_active = True, paid = True)
 
       context = {
         'usersub': subscription,

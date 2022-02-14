@@ -2,9 +2,14 @@ from django.urls import path
 
 from . import views
 
+from django.urls import path
+
+from . import views
+
+# from .views import civil_search
+
 urlpatterns=[
-    path('', views.home, name= 'home'),
-    path('launching/', views.launching_soon, name='launching'),
-    path('contact-us/', views.contact_us, name='contact-us'),
-    path('subscription/', views.subscription, name='subscription'),
+    path('criminal', views.criminal_home, name= 'criminal'),
+    # path('criminalSearch', views.criminal_search),
+
 ]

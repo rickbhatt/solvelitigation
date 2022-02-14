@@ -7,6 +7,9 @@ from django.contrib.sites.shortcuts import get_current_site
 
 from django.views.decorators.csrf import csrf_exempt
 
+from django.views.decorators.cache import cache_control
+
+
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 from account.models import CustomUser
 import payment
@@ -31,7 +34,7 @@ import razorpay
 def sub_selection(request):
         return render(request, 'payment/sub_selection.html')
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def pay(request):
     
     if request.method == 'POST':
@@ -294,6 +297,8 @@ def handlerequest(request):
                 sub_obj.payment_status = 1
                 sub_obj.is_active = True
                 sub_obj.save()
+
+                request.session['payment_id'] = sub_obj.payment_id
                 return redirect('successful')
             else:
                 sub_obj.delete()
@@ -307,4 +312,13 @@ def handlerequest(request):
     else:
         return HttpResponseBadRequest()
 def successpay(request):
-    return render(request, 'payment/payment_successful.html')
+    payment_id = request.session['payment_id']
+
+    context = {
+        'payment_id': payment_id
+    }
+
+    del request.session['payment_id']
+
+    request.session.modified = True
+    return render(request, 'payment/payment_successful.html', context)
