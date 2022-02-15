@@ -132,7 +132,7 @@ ol[role="list"] {
   display: none;
 }
 
-.criminal-court-ul[data-courtvisilble="true"] {
+.criminal-court-ul[data-criminalcourtvisilble="true"] {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -142,7 +142,7 @@ ol[role="list"] {
   display: none;
 }
 
-.criminal-category-ul[data-categoryvisible="true"] {
+.criminal-category-ul[data-criminalcategoryvisible="true"] {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

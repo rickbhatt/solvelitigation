@@ -2,3 +2,4 @@ dump.md
 .prettierignore
 dumb.txt
 mebership documentation.md
+__pycache__

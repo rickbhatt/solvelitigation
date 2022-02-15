@@ -19,28 +19,58 @@
 
     <!-- SUB LAW TYPE -->
     <article class="criminal-sub-law-type-nav">
-        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="arb" value="arbitration">
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="ipc" value="ipc">
         
-        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="landacq" value="land acquisation">
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="pc act" value="pc act">
         
-        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="comcourt" value="comercial court">
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="crpc" value="crpc">
         
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="pocso" value="pocso">
+        
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="cyber_crime" value="cyber_crime">
+
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="pmla" value="pmla">
+
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="ni_act" value="ni_act">
+
+        <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="ndps" value="ndps">
+
         <input class="criminal-sub-law-type" type="radio" name="criminal-sublaw" id="others" value="others">
 
         <ul class="criminal-sub-law-type-ul">
             <li class="criminal-sub-law-type-list">
 
-                <label for="arb" class="criminal-sub-law-type-label">  Arbitration
-                   </label>
+                <label for="ipc" class="criminal-sub-law-type-label">IPC</label>
             </li>
             <li class="criminal-sub-law-type-list">
-                <label for="landacq" class="criminal-sub-law-type-label">Land Acquisation</label>
+                <label for="pc act" class="criminal-sub-law-type-label">PC Act</label>
             </li>
             <li class="criminal-sub-law-type-list">
-                <label for="comcourt" class="criminal-sub-law-type-label">Comercial Court</label>
+                <label for="crpc" class="criminal-sub-law-type-label">CrPC</label>
             </li>
+            
             <li class="criminal-sub-law-type-list">
-                <label for="others" class="criminal-sub-law-type-label">Others</label>
+                <label for="pocso" class="criminal-sub-law-type-label">POCSO</label>
+            </li>
+
+            <li class="criminal-sub-law-type-list">
+                <label for="cyber_crime" class="criminal-sub-law-type-label">CYBER CRIME</label>
+            </li>
+
+            <li class="criminal-sub-law-type-list">
+                <label for="pmla" class="criminal-sub-law-type-label">PMLA</label>
+            </li>
+            
+            <li class="criminal-sub-law-type-list">
+                <label for="ni_act" class="criminal-sub-law-type-label">NI ACT</label>
+            </li>
+
+            <li class="criminal-sub-law-type-list">
+                <label for="ndps" class="criminal-sub-law-type-label">NDPS</label>
+            </li>
+            
+            <li class="criminal-sub-law-type-list">
+                <label for="others" class="criminal-sub-law-type-label">OTHERS</label>
             </li>
         </ul>
 
@@ -102,7 +132,7 @@
 
         <input class="criminal-court" type="radio" name="criminal-court" id="uhc" value="Uttarakhand High Court">
 
-        <ul class="criminal-court-ul"  data-courtvisilble="false">
+        <ul class="criminal-court-ul"  data-criminalcourtvisilble="false">
             
             <li class="criminal-court-list">
                 <label for="com" class="criminal-criminal-court-label">Commission</label>
@@ -216,49 +246,62 @@
 
         <input class="criminal-category" type="radio" name="criminal-category" id="review" value="review">
 
-        <input class="criminal-category" type="radio" name="criminal-category" id="sprf" value="special relief">
+        <input class="criminal-category" type="radio" name="criminal-category" id="zimma" value="zimma">
         
-        <input class="criminal-category" type="radio" name="criminal-category" id="eod" value="execution of decree">
+        <input class="criminal-category" type="radio" name="criminal-category" id="reference" value="reference">
    
         <input class="criminal-category" type="radio" name="criminal-category" id="od" value="od/ss/rd">
         
         <input class="criminal-category" type="radio" name="criminal-category" id="bindpre" value="binding precedent">
 
         <input class="criminal-category" type="radio" name="criminal-category" id="cont" value="contempt">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="antibail" value="antibail">
+
+        <input class="criminal-category" type="radio" name="criminal-category" id="bail" value="bail">
+
      
         
-        <ul class="criminal-category-ul" data-categoryvisible="false">
+        <ul class="criminal-category-ul" data-criminalcategoryvisible="false">
 
             <li class="criminal-category-list">
-                <label for="bindpre" class="criminal-law-category-label">Binding Precedent</label>
-            </li>
-
-            <li class="criminal-category-list">
-                <label for="cont" class="criminal-law-category-label">Contempt</label>
+                <label for="antibail" class="criminal-law-category-label">ANTICIPATORY BAIL</label>
             </li>
             
             <li class="criminal-category-list">
-                <label for="eod" class="criminal-law-category-label">Execution of Decree</label>
+                <label for="bail" class="criminal-law-category-label">BAIL</label>
             </li>
             
             <li class="criminal-category-list">
-                <label for="limitation" class="criminal-law-category-label">Limitation</label>
-            </li>
-            
-            <li class="criminal-category-list">
-                <label for="ngteq" class="criminal-law-category-label">Ngetaive Equality</label>
+                <label for="bindpre" class="criminal-law-category-label">BINDING PRECEDENT</label>
             </li>
 
             <li class="criminal-category-list">
-                <label for="od" class="criminal-law-category-label">Obitor Dicta/ Sub Silenso/ Ratio Decidendi</label>
+                <label for="cont" class="criminal-law-category-label">CONTEMPT</label>
             </li>
             
             <li class="criminal-category-list">
-                <label for="review" class="criminal-law-category-label">Review</label>
+                <label for="limitation" class="criminal-law-category-label">LIMITATION</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="ngteq" class="criminal-law-category-label">NEGATIVE EQUALITY</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="od" class="criminal-law-category-label">OBITOR DICTA/ SUB SILENSO/ RATION DECIDENDI</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="reference" class="criminal-law-category-label">REFERENCE</label>
+            </li>
+            
+            <li class="criminal-category-list">
+                <label for="review" class="criminal-law-category-label">REVIEW</label>
             </li>
 
             <li class="criminal-category-list">
-                <label for="sprf" class="criminal-law-category-label">Special Relief</label>
+                <label for="zimma" class="criminal-law-category-label">ZIMMA</label>
             </li>
 
         </ul>
