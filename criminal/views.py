@@ -87,3 +87,6 @@ def criminal_search(request):
 
       else:
         return JsonResponse({"status": "error"})
+  else:
+
+    return HttpResponse("404 not found")

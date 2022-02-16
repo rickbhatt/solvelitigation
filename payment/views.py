@@ -312,13 +312,13 @@ def handlerequest(request):
     else:
         return HttpResponseBadRequest()
 def successpay(request):
-    payment_id = request.session['payment_id']
+    # payment_id = request.session['payment_id']
 
-    context = {
-        'payment_id': payment_id
-    }
+    # context = {
+    #     'payment_id': payment_id
+    # }
 
-    del request.session['payment_id']
+    # del request.session['payment_id']
 
-    request.session.modified = True
-    return render(request, 'payment/payment_successful.html', context)
+    # request.session.modified = True
+    return render(request, 'payment/payment_successful.html')

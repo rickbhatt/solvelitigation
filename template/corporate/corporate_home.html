@@ -1,0 +1,284 @@
+{% extends 'professional/professional_home.html' %}
+
+{% load static %}
+
+{% block section %}
+
+
+<section class="corporate-search-container">
+    <form action="corporatesearch" method="post" class="corporate-search-bar" id="corporate_search_form">
+        {% csrf_token %}
+            <input class="corporate-search-input" type="text" placeholder="search by advocate name, party name, judge name, date of order,  etc.." name="corporate-search" id="corporate_search">
+
+            <button type="submit" class="corporate-search-button" ><span class="corporate-search-icon"><i class="fas fa-search"></i></span></button>
+    </form>
+</section>
+
+<section class="corporate-main-container">
+
+
+    <!-- SUB LAW TYPE -->
+    <article class="corporate-sub-law-type-nav">
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="company" value="company">
+        
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="sebi" value="sebi">
+        
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="fema" value="fema">
+
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="banking" value="banking">
+
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="nclt" value="nclt">
+
+        
+        <input class="corporate-sub-law-type" type="radio" name="corporate-sublaw" id="others" value="others">
+
+        <ul class="corporate-sub-law-type-ul">
+            <li class="corporate-sub-law-type-list">
+
+            <li class="corporate-sub-law-type-list">
+                <label for="banking" class="corporate-sub-law-type-label">BANKING</label>
+            </li>
+
+                <label for="company" class="corporate-sub-law-type-label">  COMPANY
+                   </label>
+            </li>
+            <li class="corporate-sub-law-type-list">
+                <label for="fema" class="corporate-sub-law-type-label">FEMA</label>
+            </li>
+            <li class="corporate-sub-law-type-list">
+                <label for="nclt" class="corporate-sub-law-type-label">NCLT</label>
+            </li>
+            <li class="corporate-sub-law-type-list">
+                <label for="sebi" class="corporate-sub-law-type-label">SEBI</label>
+            </li>
+
+
+            <li class="corporate-sub-law-type-list">
+                <label for="others" class="corporate-sub-law-type-label">Others</label>
+            </li>
+        </ul>
+
+  
+    </article>
+    <!-- END OF SUB LAW TYPE -->
+
+    <!-- COURT -->
+    <article class="corporate-court-nav">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="sc" value="The Supreme Court of India">
+        
+        <input class="corporate-court" type="radio" name="corporate-court" id="alhc" value="Allahabad High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="aphc" value="Andhra Pradesh High Court">
+
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="bhc" value="Bombay High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="calhc" value="Calcutta High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="chhc" value="Chhattisgarh High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="dhc" value="Delhi High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="gujhc" value="Gujarat High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="guwhc" value="Guwahati High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="hphc" value="Himachal Pradesh High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="jkhc" value="Jammu and Kashmir High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="jhahc" value="Jharkhand High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="kahc" value="Karnataka High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="kehc" value="Kerala High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="madhyahc" value="Madhya Pradesh High Court">
+        
+        <input class="corporate-court" type="radio" name="corporate-court" id="madrashc" value="Madras High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="manhc" value="Manipur High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="meghhc" value="Meghalaya High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="ohc" value="Odisha High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="phc" value="Patna High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="rhc" value="Rajasthan High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="tehc" value="Telangana High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="trhc" value="Tripura High Court">
+
+        <input class="corporate-court" type="radio" name="corporate-court" id="uhc" value="Uttarakhand High Court">
+
+        <ul class="corporate-court-ul"  data-corporatecourtvisilble="false">
+            <li class="corporate-court-list">
+                <label for="sc" class="corporate-corporate-court-label">The Supreme Court of India</label>
+            </li>
+            
+            <li class="corporate-court-list">
+               <label for="alhc" class="corporate-corporate-court-label">The Allahabad High Court</label>
+            </li>
+            
+            <li class="corporate-court-list">
+                <label for="aphc" class="corporate-corporate-court-label">The Andhra Pradesh High Court</label>
+            </li>
+            
+            <li class="corporate-court-list">
+                <label for="bhc" class="corporate-corporate-court-label">The Bombay High Court</label>
+            </li>
+
+             <li class="corporate-court-list">
+                <label for="calhc" class="corporate-corporate-court-label">The Calcutta High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="chhc" class="corporate-corporate-court-label">The Chhattisgarh High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="dhc" class="corporate-corporate-court-label">The Delhi High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="gujhc" class="corporate-corporate-court-label">The Gujarat High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="guwhc" class="corporate-corporate-court-label">The Guwahati High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="hphc" class="corporate-corporate-court-label">The Himachal Pradesh High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="jkhc" class="corporate-corporate-court-label">The Jammu and Kashmir High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="jhahc" class="corporate-corporate-court-label">The Jharkhand High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="kahc" class="corporate-corporate-court-label">The Karnataka High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="kehc" class="corporate-corporate-court-label">The Kerala High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="madhyahc" class="corporate-corporate-court-label">The Madhya Pradesh High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="madrashc" class="corporate-corporate-court-label">The Madhya Pradesh High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="manhc" class="corporate-corporate-court-label">The Manipur High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="meghhc" class="corporate-corporate-court-label">The Meghalaya High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="ohc" class="corporate-corporate-court-label">The Odisha High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="phc" class="corporate-corporate-court-label">The Patna High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="rhc" class="corporate-corporate-court-label">The Rajasthan High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="tehc" class="corporate-corporate-court-label">The Telangana High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="trhc" class="corporate-corporate-court-label">The Tripura High Court</label>
+            </li>
+
+            <li class="corporate-court-list">
+                <label for="uhc" class="corporate-corporate-court-label">The Uttarakhand High Court</label>
+            </li>
+        </ul>
+    </article>
+    <!-- END OF COURT -->
+
+    <!-- LAW CATEGORY -->
+    <article class="corporate-category-nav">
+
+        <input class="corporate-category" type="radio" name="corporate-category" id="limitation" value="limitation" >
+
+        <input class="corporate-category" type="radio" name="corporate-category" id="ngteq" value="negative equality">
+
+        <input class="corporate-category" type="radio" name="corporate-category" id="review" value="review">
+
+        <input class="corporate-category" type="radio" name="corporate-category" id="sprf" value="special relief">
+        
+        <input class="corporate-category" type="radio" name="corporate-category" id="eod" value="execution of decree">
+   
+        <input class="corporate-category" type="radio" name="corporate-category" id="od" value="od/ss/rd">
+        
+        <input class="corporate-category" type="radio" name="corporate-category" id="bindpre" value="binding precedent">
+
+        <input class="corporate-category" type="radio" name="corporate-category" id="cont" value="contempt">
+     
+        
+        <ul class="corporate-category-ul" data-corporatecategoryvisible="false">
+
+            <li class="corporate-category-list">
+                <label for="bindpre" class="corporate-law-category-label">Binding Precedent</label>
+            </li>
+
+            <li class="corporate-category-list">
+                <label for="cont" class="corporate-law-category-label">Contempt</label>
+            </li>
+            
+            <li class="corporate-category-list">
+                <label for="eod" class="corporate-law-category-label">Execution of Decree</label>
+            </li>
+            
+            <li class="corporate-category-list">
+                <label for="limitation" class="corporate-law-category-label">Limitation</label>
+            </li>
+            
+            <li class="corporate-category-list">
+                <label for="ngteq" class="corporate-law-category-label">Ngetaive Equality</label>
+            </li>
+
+            <li class="corporate-category-list">
+                <label for="od" class="corporate-law-category-label">Obitor Dicta/ Sub Silenso/ Ratio Decidendi</label>
+            </li>
+            
+            <li class="corporate-category-list">
+                <label for="review" class="corporate-law-category-label">Review</label>
+            </li>
+
+            <li class="corporate-category-list">
+                <label for="sprf" class="corporate-law-category-label">Special Relief</label>
+            </li>
+
+        </ul>
+    </article>
+    <!-- END LAW CATEGORY -->
+
+    <!-- CITATION AREA -->
+    <article id="corporatequeryResult" class="corporate-citation-container">
+
+
+    </article>
+
+    <!-- END OF CITATION -->
+</section>
+
+{% endblock %}
