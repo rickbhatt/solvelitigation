@@ -27,7 +27,7 @@ type_of_law = (
 sub_type_of_law = (
 
     ('arbitration','arbitration'),
-    ('armed force tribunal', 'armed force tribunal'),
+    ('armed force', 'armed force'),
     ('banking', 'banking'),
     ('central civil service', 'central civil service'),
     ('comercial court','comercial court'),
