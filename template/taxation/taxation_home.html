@@ -1,0 +1,387 @@
+{% extends 'professional/professional_home.html' %}
+
+{% load static %}
+
+{% block section %}
+
+
+<section class="tax-search-container">
+    <form action="taxsearch" method="post" class="tax-search-bar" id="tax_search_form">
+        {% csrf_token %}
+            <input class="tax-search-input" type="text" placeholder="search by advocate name, party name, judge name, date of order,  etc.." name="tax-search" id="tax_search">
+
+            <button type="submit" class="tax-search-button" ><span class="tax-search-icon"><i class="fas fa-search"></i></span></button>
+    </form>
+</section>
+
+<section class="tax-main-container">
+
+
+    <!-- SUB LAW TYPE -->
+    <article class="tax-sub-law-type-nav">
+        
+        <input class="tax-sub-law-type" type="radio" name="tax-sublaw" id="gst" value="gst">
+
+        
+        <input class="tax-sub-law-type" type="radio" name="tax-sublaw" id="vat" value="vat">
+
+        <input class="tax-sub-law-type" type="radio" name="tax-sublaw" id="it" value="it">
+
+        <input class="tax-sub-law-type" type="radio" name="tax-sublaw" id="service-tax" value="service-tax">
+
+        
+        <input class="tax-sub-law-type" type="radio" name="tax-sublaw" id="others" value="others">
+
+        <ul class="tax-sub-law-type-ul">
+
+            <li class="tax-sub-law-type-list">
+                <label for="it" class="tax-sub-law-type-label">IT</label>
+            </li>
+            <li class="tax-sub-law-type-list">
+
+                <label for="gst" class="tax-sub-law-type-label"> GST
+                   </label>
+            </li>
+            <li class="tax-sub-law-type-list">
+                <label for="vat" class="tax-sub-law-type-label">VAT</label>
+            </li>
+            <li class="tax-sub-law-type-list">
+                <label for="service-tax" class="tax-sub-law-type-label">SERVICE TAX</label>
+            </li>
+      
+            <li class="tax-sub-law-type-list">
+                <label for="others" class="tax-sub-law-type-label">Others</label>
+            </li>
+        </ul>
+
+  
+    </article>
+    <!-- END OF SUB LAW TYPE -->
+
+    <!-- COURT -->
+    <article class="tax-court-nav">
+
+        <input class="tax-court" type="radio" name="tax-court" id="sc" value="The Supreme Court of India">
+        
+        <input class="tax-court" type="radio" name="tax-court" id="alhc" value="Allahabad High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="aphc" value="Andhra Pradesh High Court">
+
+
+        <input class="tax-court" type="radio" name="tax-court" id="bhc" value="Bombay High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="calhc" value="Calcutta High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="chhc" value="Chhattisgarh High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="dhc" value="Delhi High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="gujhc" value="Gujarat High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="guwhc" value="Guwahati High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="hphc" value="Himachal Pradesh High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="jkhc" value="Jammu and Kashmir High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="jhahc" value="Jharkhand High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="kahc" value="Karnataka High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="kehc" value="Kerala High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="madhyahc" value="Madhya Pradesh High Court">
+        
+        <input class="tax-court" type="radio" name="tax-court" id="madrashc" value="Madras High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="manhc" value="Manipur High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="meghhc" value="Meghalaya High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="ohc" value="Odisha High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="phc" value="Patna High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="rhc" value="Rajasthan High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="tehc" value="Telangana High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="trhc" value="Tripura High Court">
+
+        <input class="tax-court" type="radio" name="tax-court" id="uhc" value="Uttarakhand High Court">
+
+          <input class="tax-court" type="radio" name="tax-court" id="Administrative Tribunal" value="Administrative Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Appellate Tribunal for Electricity" value="Appellate Tribunal for Electricity">
+
+
+        <input class="tax-court" type="radio" name="tax-court" id="Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act" value="Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Armed Forces Tribunal" value="Armed Forces Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Customs, Excise and tax Tax Appellate Tribunal" value="Customs, Excise and tax Tax Appellate Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Debt Recovery Tribunal" value="Debt Recovery Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Income Tax Appellate Tribunal" value="Income Tax Appellate Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Industrial Tribunal" value="Industrial Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="National Companies Law Appellate Tribunal" value="National Companies Law Appellate Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="National Consumer Disputes Redressal Commission" value="National Consumer Disputes Redressal Commission">
+
+        <input class="tax-court" type="radio" name="tax-court" id="National Green Tribunal" value="National Green Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Railway Claims Tribunal" value="Railway Claims Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="Securities Appellate Tribunal" value="Securities Appellate Tribunal">
+
+        <input class="tax-court" type="radio" name="tax-court" id="The Telecom Disputes Settlement and Appellate Tribunal" value="The Telecom Disputes Settlement and Appellate Tribunal">
+
+        <button class="crt-trib" id="crt-trib-court" > COURT </button> <!-- This is for toggling the court list-->
+
+        <ul class="tax-court-ul"  data-taxcourtvisilble="false">
+
+            <li class="tax-court-list">
+                <label for="sc" class="tax-tax-court-label">The Supreme Court of India</label>
+            </li>
+            
+            <li class="tax-court-list">
+               <label for="alhc" class="tax-tax-court-label">The Allahabad High Court</label>
+            </li>
+            
+            <li class="tax-court-list">
+                <label for="aphc" class="tax-tax-court-label">The Andhra Pradesh High Court</label>
+            </li>
+            
+            <li class="tax-court-list">
+                <label for="bhc" class="tax-tax-court-label">The Bombay High Court</label>
+            </li>
+
+             <li class="tax-court-list">
+                <label for="calhc" class="tax-tax-court-label">The Calcutta High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="chhc" class="tax-tax-court-label">The Chhattisgarh High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="dhc" class="tax-tax-court-label">The Delhi High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="gujhc" class="tax-tax-court-label">The Gujarat High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="guwhc" class="tax-tax-court-label">The Guwahati High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="hphc" class="tax-tax-court-label">The Himachal Pradesh High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="jkhc" class="tax-tax-court-label">The Jammu and Kashmir High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="jhahc" class="tax-tax-court-label">The Jharkhand High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="kahc" class="tax-tax-court-label">The Karnataka High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="kehc" class="tax-tax-court-label">The Kerala High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="madhyahc" class="tax-tax-court-label">The Madhya Pradesh High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="madrashc" class="tax-tax-court-label">The Madras High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="manhc" class="tax-tax-court-label">The Manipur High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="meghhc" class="tax-tax-court-label">The Meghalaya High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="ohc" class="tax-tax-court-label">The Odisha High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="phc" class="tax-tax-court-label">The Patna High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="rhc" class="tax-tax-court-label">The Rajasthan High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="tehc" class="tax-tax-court-label">The Telangana High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="trhc" class="tax-tax-court-label">The Tripura High Court</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="uhc" class="tax-tax-court-label">The Uttarakhand High Court</label>
+            </li>
+        </ul>
+
+        <button class="crt-trib" id="crt-trib-tribunal" > TRIBUNAL </button> <!-- This is for toggling the court list-->
+
+        <ul class="tax-tribunal-ul"  data-taxtribunalvisilble="false">
+            
+            <li class="tax-court-list">
+               <label for="Administrative Tribunal" class="tax-tax-court-label">ADMINISTRATIVE TRIBUNAL</label>
+            </li>
+            
+            <li class="tax-court-list">
+                <label for="Appellate Tribunal for Electricity" class="tax-tax-court-label">APPELLATE TRIBUNAL FOR ELECTRICITY</label>
+            </li>
+            
+            <li class="tax-court-list">
+                <label for="Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act" class="tax-tax-court-label">APPELLATE TRIBUNAL UNDER SMUGGLERS AND FOREIGN EXCHANGE MANIPULATORS ACT</label>
+            </li>
+
+             <li class="tax-court-list">
+                <label for="Armed Forces Tribunal" class="tax-tax-court-label">ARMED FORCES TRIBUNALS</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Customs, Excise and tax Tax Appellate Tribunal" class="tax-tax-court-label">CUSTOMS, EXCISE AND tax TAX APPELLATE TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Debt Recovery Tribunal" class="tax-tax-court-label">DEBT RECOVERY TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Income Tax Appellate Tribunal" class="tax-tax-court-label">INCOME TAX APPELLATE TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Industrial Tribunal" class="tax-tax-court-label">INDUSTRIAL TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="National Companies Law Appellate Tribunal" class="tax-tax-court-label">NATIONAL COMPANIES LAW APPELLATE TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="National Consumer Disputes Redressal Commission" class="tax-tax-court-label">NATIONAL CONSUMER DISPUTES REDRESSAL COMMISSION</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="National Green Tribunal" class="tax-tax-court-label">NATIONAL GREEN TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Railway Claims Tribunal" class="tax-tax-court-label">RAILWAY CLAIMS TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="Securities Appellate Tribunal" class="tax-tax-court-label">SECURITIES APPELLATE TRIBUNAL</label>
+            </li>
+
+            <li class="tax-court-list">
+                <label for="The Telecom Disputes Settlement and Appellate Tribunal" class="tax-tax-court-label">THE TELECOM DISPUTES SETTLEMENT AND APPELLATE TRIBUNAL</label>
+            </li>
+        </ul>
+
+    </article>
+    <!-- END OF COURT -->
+
+    <!-- LAW CATEGORY -->
+    <article class="tax-category-nav">
+
+        <input class="tax-category" type="radio" name="tax-category" id="limitation" value="limitation" >
+
+        <input class="tax-category" type="radio" name="tax-category" id="ngteq" value="negative equality">
+
+        <input class="tax-category" type="radio" name="tax-category" id="review" value="review">
+
+        <input class="tax-category" type="radio" name="tax-category" id="s/pl" value="s/pl">
+        
+        <input class="tax-category" type="radio" name="tax-category" id="sba" value="sba">
+   
+        <input class="tax-category" type="radio" name="tax-category" id="od" value="od/ss/rd">
+        
+        <input class="tax-category" type="radio" name="tax-category" id="bindpre" value="binding precedent">
+
+        <input class="tax-category" type="radio" name="tax-category" id="cont" value="contempt">
+
+        <input class="tax-category" type="radio" name="tax-category" id="reference" value="reference">
+
+        <input class="tax-category" type="radio" name="tax-category" id="sas" value="sas">
+    
+        <ul class="tax-category-ul" data-taxcategoryvisible="false">
+
+
+            <li class="tax-category-list">
+                <label for="bindpre" class="tax-law-category-label">Binding Precedent</label>
+            </li>
+
+            <li class="tax-category-list">
+                <label for="cont" class="tax-law-category-label">Contempt</label>
+            </li>
+            
+            
+            <li class="tax-category-list">
+                <label for="limitation" class="tax-law-category-label">Limitation</label>
+            </li>
+            
+            <li class="tax-category-list">
+                <label for="ngteq" class="tax-law-category-label">Ngetaive Equality</label>
+            </li>
+
+            <li class="tax-category-list">
+                <label for="od" class="tax-law-category-label">Obitor Dicta/ Sub Silenso/ Ratio Decidendi</label>
+            </li>
+
+            <li class="tax-category-list">
+                <label for="reference" class="tax-law-category-label">Reference</label>
+            </li>
+            
+            <li class="tax-category-list">
+                <label for="review" class="tax-law-category-label">Review</label>
+            </li>
+            
+            <li class="tax-category-list">
+                <label for="sas" class="tax-law-category-label">Search and Seizure</label>
+            </li>
+
+
+            <li class="tax-category-list">
+                <label for="s/pl" class="tax-law-category-label">Statutory/ Procedure Law</label>
+            </li>
+
+            <li class="tax-category-list">
+                <label for="sba" class="tax-law-category-label">Substitution by Amendment</label>
+            </li>
+        </ul>
+    </article>
+    <!-- END LAW CATEGORY -->
+
+    <!-- CITATION AREA -->
+    <article id="taxqueryResult" class="tax-citation-container">
+
+
+    </article>
+
+    <!-- END OF CITATION -->
+</section>
+
+{% endblock %}

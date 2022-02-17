@@ -9,7 +9,7 @@
       <li class="prof-nav-list"><a href="{% url 'civil' %}" class="prof-nav-link">CIVIL</a></li>
       <li class="prof-nav-list"><a href="{% url 'criminal' %}" class="prof-nav-link">CRIMINAL</a></li>
       <li class="prof-nav-list"><a href="{% url 'service' %}" class="prof-nav-link">SERVICE</a></li>
-      <li class="prof-nav-list"><a href="" class="prof-nav-link">TAXATION</a></li>
+      <li class="prof-nav-list"><a href="{% url 'taxation' %}" class="prof-nav-link">TAXATION</a></li>
       <li class="prof-nav-list"><a href="" class="{% url 'corporate' %}">CORPORATE</a></li>
       <li class="prof-nav-list"><a href="" class="prof-nav-link">ACTS/ LAWS</a></li>
       <li class="prof-nav-list"><a href="" class="prof-nav-link">NOTIFICATIONS</a></li>
@@ -42,7 +42,7 @@
       {% for sub in usersub %}
       
         {% if sub.service_choosen.code == 41 %}
-              <li class="prof-nav-list"><a href="" class="prof-nav-link">TAXATION</a></li>
+              <li class="prof-nav-list"><a href="{% url 'taxation' %}" class="prof-nav-link">TAXATION</a></li>
         {% endif %}
       {% endfor %}
       
