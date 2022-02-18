@@ -32,15 +32,18 @@
         </header>
 
         <main class="pay-main-container">
-            <section class="pay-summary-grid">
-                <p class="pay-sum-title">Payment Summary</p>
-                <p class="service_choosen"> Service Choosen : {{service}} </p>
+            <section class="pay-summary-container">
+                <p class="pay-sum-title">SUBSCRIPTION SUMMARY</p>
+                <p class="service-choosen"> Service Choosen : <span class="pay-summary-highlight">{{service}}</span> </p>
 
-                <p class="pay-duration">Subscription Duration : {{duration}}</p>
+                <p class="pay-duration">Subscription Duration : <span class="pay-summary-highlight">{{duration}}</span></p>
 
-                <p class="pay-price"> Price : ₹{{price_summary}} </p>
+                <p class="pay-price"> Price : <span class="pay-summary-highlight">₹{{price_summary}}</span></p>
 
-               <button id="rzp-button1">Pay</button>
+               <div class="pay-sum-btn-container">
+                   <button class="pay-summary-btn" id="rzp-button1">PAY</button>
+                   <a href="{% url 'sub-selection' %}" class="pay-summary-cancel-btn">Cancel</a>
+               </div>
             </section>
         </main>
     </div>

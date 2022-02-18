@@ -1,3 +1,4 @@
+from distutils.util import execute
 from time import strftime
 from urllib import response
 from django.shortcuts import render, redirect
@@ -9,12 +10,14 @@ from django.views.decorators.csrf import csrf_exempt
 
 from django.views.decorators.cache import cache_control
 
+from .tasks import payment_success_mail
+
 
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 from account.models import CustomUser
-import payment
 
 from .models import ServiceProduct, UserSubscription
+
 
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 
@@ -174,7 +177,7 @@ def pay(request):
 
                                 subscription_obj.save()
                                 context = {
-                                    'order': str(service_choosen) + 'M', 
+                                    'order': str(service_choosen) + 'H', 
                                     'order_id': razorpay_order['id'],
                                     'orderId': subscription_obj.razorpay_order_id,
                                     'price_summary': price/100,
@@ -261,7 +264,7 @@ def pay(request):
             messages.error(request, "We are facing some problems. We regret the inconvinience caused.")
             return redirect('sub-selection')
     else:
-        return HttpResponseBadRequest()
+        return redirect('sub-selection')
 
 @csrf_exempt
 def handlerequest(request):
@@ -298,7 +301,14 @@ def handlerequest(request):
                 sub_obj.is_active = True
                 sub_obj.save()
 
-                request.session['payment_id'] = sub_obj.payment_id
+                payment_id = sub_obj.payment_id
+
+                user_email = sub_obj.user.email
+
+                payment_success_mail.delay(payment_id, user_email)
+
+                request.session['paysuccess'] = True
+
                 return redirect('successful')
             else:
                 sub_obj.delete()
@@ -310,15 +320,12 @@ def handlerequest(request):
             return redirect('sub-selection')
 
     else:
-        return HttpResponseBadRequest()
+        return redirect('sub-selection')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def successpay(request):
-    # payment_id = request.session['payment_id']
 
-    # context = {
-    #     'payment_id': payment_id
-    # }
-
-    # del request.session['payment_id']
-
-    # request.session.modified = True
-    return render(request, 'payment/payment_successful.html')
+    if 'paysuccess' in request.session:
+        del request.session['paysuccess']
+        return render(request, 'payment/payment_successful.html')
+    else:
+        return redirect('sub-selection')

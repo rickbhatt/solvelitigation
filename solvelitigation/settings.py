@@ -184,23 +184,23 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 # SMTP configuration
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'solve.litigation@gmail.com'
-# EMAIL_HOST_PASSWORD = 'vwmavxiwmdkyndrz'
-# SERVER_EMAIL = EMAIL_HOST_USER
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtpout.secureserver.net'
-EMAIL_HOST_USER = 'info@solvelitigation.com'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = 'So1vel!tig@t!on'
-EMAIL_PORT = 80
-EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'solve.litigation@gmail.com'
+EMAIL_HOST_PASSWORD = 'vwmavxiwmdkyndrz'
+SERVER_EMAIL = EMAIL_HOST_USER
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtpout.secureserver.net'
+# EMAIL_HOST_USER = 'info@solvelitigation.com'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD = 'So1vel!tig@t!on'
+# EMAIL_PORT = 80
+# EMAIL_USE_SSL = False
+# EMAIL_USE_TLS = True
 
 
 ######## PAYMENTS GATEWAY SETTINGS #############

@@ -18,10 +18,34 @@
     ></script>
 
     <link rel="icon" href="{% static 'images/solve_favicon.svg' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/payment_summary.css' %}" />
+    
 </head>
 <body>
-    <p>Payment was successful <i class="fas fa-check-circle"></i></p>
-    <p>Your Payment Id is : {{payment_id}} </p>
-    <p>A confirmation email has been sent regarding your current purchase. Thank you. </p>
+     <div class="pay-wrapper">
+       <header class="pay-header">
+          <a class="logo-link" href="{% url 'home' %}"
+          ><img
+            class="logo"
+            src="{% static 'images/slvemongramdarkblue.svg' %}"
+            alt="logo"
+        /></a>
+        </header>
+
+        <main class="pay-main-container">
+            <section class="pay-success-container">
+                <p class="pay-success-title">THANK YOU <i class="fas fa-smile-beam"></i></p>
+                <p class="pay-success-title">YOUR PAYMENT WAS SUCCESSFUL  <i class="fas fa-check-circle"></i></p>
+
+                <div class="pay-success-btn-container">
+                    <a href="{% url 'login' %}" class="pay-success-btns">LOGIN</a>
+                    <a href="{% url 'home' %}" class="pay-success-btns">HOME</a>
+                </div>
+
+            </section>
+        </main>
+
+     </div>
 </body>
 </html>

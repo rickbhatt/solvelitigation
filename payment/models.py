@@ -9,8 +9,8 @@ from account.models import CustomUser
 
 SUB_CHOICES = (
 ('1', 'For 1 Month'),
-('3', 'For 3 Month'),
-('6', 'For 6 Month'),
+('3', 'For 3 Months'),
+('6', 'For 6 Months'),
 ('12', 'For 1 Year'),
 )
 
@@ -41,7 +41,7 @@ class UserSubscription(models.Model):
     subscription_duration = models.CharField(max_length=10, choices=SUB_CHOICES, null=True)
     subscribed_on = models.DateTimeField(null=True)
     expiring_on = models.DateTimeField(null=True)
-    payment_id = models.CharField(max_length=100, null=True)
+    payment_id = models.CharField(max_length=100, null=True, unique=True)
     razorpay_order_id = models.CharField(max_length=100, null = True)
     razorpay_payment_id = models.CharField(max_length=100, null = True)
     razorpay_signature = models.CharField(max_length=100, null = True)
