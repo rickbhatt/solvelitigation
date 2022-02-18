@@ -205,5 +205,5 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 ######## PAYMENTS GATEWAY SETTINGS #############
 
-RAZORPAY_ID = "rzp_test_RM1vYZ0rxbhhwK"
+RAZORPAY_ID = "rzp_test_RM1vYZ0rxbhhwK"  # this should be secret
 RAZORPAY_ACCOUNT_ID = "6rXTnFiJ60EEOimO9ywDhhGB"

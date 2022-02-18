@@ -1,6 +1,3 @@
-from distutils.util import execute
-from time import strftime
-from urllib import response
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -12,6 +9,7 @@ from django.views.decorators.cache import cache_control
 
 from .tasks import payment_success_mail
 
+import base64
 
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 from account.models import CustomUser
@@ -116,7 +114,7 @@ def pay(request):
 
                                 subscription_obj.save()
                                 context = {
-                                    'order': str(service_choosen) + 'Q', 
+                                    'order': str(service_choosen) + 'M', 
                                     'order_id': razorpay_order['id'],
                                     'orderId': subscription_obj.razorpay_order_id,
                                     'price_summary': price/100,
@@ -177,7 +175,7 @@ def pay(request):
 
                                 subscription_obj.save()
                                 context = {
-                                    'order': str(service_choosen) + 'H', 
+                                    'order': str(service_choosen) + 'Q', 
                                     'order_id': razorpay_order['id'],
                                     'orderId': subscription_obj.razorpay_order_id,
                                     'price_summary': price/100,
@@ -237,7 +235,7 @@ def pay(request):
 
                                 subscription_obj.save()
                                 context = {
-                                    'order': str(service_choosen) + 'M', 
+                                    'order': str(service_choosen) + 'HF', 
                                     'order_id': razorpay_order['id'],
                                     'orderId': subscription_obj.razorpay_order_id,
                                     'price_summary': price/100,
