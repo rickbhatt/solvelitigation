@@ -12,6 +12,8 @@ const rate_service = document.getElementById("rates_service");
 const rate_tax = document.getElementById("rates_tax");
 const rate_cor = document.getElementById("rates_cor");
 
+var durationText = document.getElementsByClassName("pricing-plan-text");
+
 // VARIABLE TO GET THE PRICES OF MONTHS
 
 cv_monthly = rate_civil.textContent;
@@ -43,6 +45,9 @@ for (i = 0; i < radio.length; i++) {
       rate_service.textContent = sv_qauterly;
       rate_tax.textContent = tx_quaterly;
       rate_cor.textContent = crp_quaterly;
+      for (i = 0; i < durationText.length; i++) {
+        durationText[i].textContent = "For 3 Months";
+      }
     } else if (hf.checked) {
       //For half_yearly
       rate_civil.textContent = cv_hf;
@@ -50,6 +55,9 @@ for (i = 0; i < radio.length; i++) {
       rate_service.textContent = sv_hf;
       rate_tax.textContent = tx_hf;
       rate_cor.textContent = crp_hf;
+      for (i = 0; i < durationText.length; i++) {
+        durationText[i].textContent = "For 6 Months";
+      }
     } else {
       //For monthly
       rate_civil.textContent = cv_monthly;
@@ -57,6 +65,9 @@ for (i = 0; i < radio.length; i++) {
       rate_service.textContent = sv_monthly;
       rate_tax.textContent = tx_monthly;
       rate_cor.textContent = crp_monthly;
+      for (i = 0; i < durationText.length; i++) {
+        durationText[i].textContent = "For 1 Month";
+      }
     }
   });
 }

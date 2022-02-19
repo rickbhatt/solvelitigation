@@ -109,26 +109,24 @@
 
             <p class="professional-desc">
               <span class="sub-highlight-text"
-                >The first day after registration is free. Swipe the cards to
-                have a look.</span
+                >The first day after registration is free.</span
               >
             </p>
           </div>
         </div>
 
         <div class="plan-button-container">
-          
           <!-- PRICES OF THE OTHER PLANS FOR JS -->
-          <input type="hidden" name="cvq" id="cvq" value="{{cv_quaterly}}">
-          <input type="hidden" name="cvh" id="cvh" value="{{cv_hf}}">
-          <input type="hidden" name="crq" id="crq" value="{{cr_quaterly}}">
-          <input type="hidden" name="crh" id="crh" value="{{cr_hf}}">
-          <input type="hidden" name="txq" id="txq" value="{{tx_quaterly}}">
-          <input type="hidden" name="txh" id="txh" value="{{tx_hf}}">
-          <input type="hidden" name="svq" id="svq" value="{{sv_quaterly}}">
-          <input type="hidden" name="svh" id="svh" value="{{sv_hf}}">
-          <input type="hidden" name="crpq" id="crpq" value="{{crp_quaterly}}">
-          <input type="hidden" name="crph" id="crph" value="{{crp_hf}}">
+          <input type="hidden" name="cvq" id="cvq" value="{{cv_quaterly}}" />
+          <input type="hidden" name="cvh" id="cvh" value="{{cv_hf}}" />
+          <input type="hidden" name="crq" id="crq" value="{{cr_quaterly}}" />
+          <input type="hidden" name="crh" id="crh" value="{{cr_hf}}" />
+          <input type="hidden" name="txq" id="txq" value="{{tx_quaterly}}" />
+          <input type="hidden" name="txh" id="txh" value="{{tx_hf}}" />
+          <input type="hidden" name="svq" id="svq" value="{{sv_quaterly}}" />
+          <input type="hidden" name="svh" id="svh" value="{{sv_hf}}" />
+          <input type="hidden" name="crpq" id="crpq" value="{{crp_quaterly}}" />
+          <input type="hidden" name="crph" id="crph" value="{{crp_hf}}" />
           <!-- END PRICES OF THE OTHER PLANS FOR JS -->
 
           <input
@@ -155,7 +153,6 @@
             class="plan"
             required
           />
-          
 
           <label for="monthly" class="monthly">
             <div class="dot"></div>
@@ -173,136 +170,112 @@
           </label>
         </div>
         <!-- PRICE CARDS SECTION -->
-        <div class="professional-card-container">
-          <div class="swipe-container-left">
-            <i id="swipe-arrow" class="fas fa-chevron-circle-left"></i>
-          </div>
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="price-cards">
-                  <div class="card shadow">
-                    <ul>
-                      <li class="pack">Civil</li>
-                      <li class="price bottom-bar">
-                        <!-- <i class="fas fa-rupee-sign"></i> -->
-                        ₹
-                        <span id="rates_civil">{{cv_monthly}}</span>
-                      </li>
-                      <li class="bottom-bar">
-                        Complete databse with repective case laws
-                      </li>
-
-                      <li>
-                        <a href="{% url 'sub-selection' %}" class="apply-now"
-                          >Subscribe</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+        <div class="professional-card-main-container">
+          <!-- CIVIL -->
+            <section class="pricing-plan" id="civil">
+              <div class="pricing-plan-header">
+                <p class="pricing-plan-title">
+                  CIVIL
+                </p>
               </div>
-              <div class="swiper-slide">
-                <div class="price-cards">
-                  <div class="card shadow">
-                    <ul>
-                      <li class="pack">Criminal</li>
-                      <li class="price bottom-bar">
-                        <!-- <i class="fas fa-rupee-sign"></i> -->
-                        ₹
-                        <span id="rates_criminal">{{cr_monthly}}</span>
-                      </li>
-                      <li class="bottom-bar">
-                        Complete database with respective case laws
-                      </li>
-
-                      <li>
-                        <a href="{% url 'sub-selection' %}" class="apply-now"
-                          >Subscribe</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div class="pricing-plan-description">
+                <ul class="pricing-plan-list">
+                  <li class="pricing-plan-feature">All Indian Courts</li>
+                  <li class="pricing-plan-feature">Personalised Headnotes</li>
+                  <!-- <li class="pricing-plan-feature"></li> -->
+                </ul>
               </div>
-              <div class="swiper-slide">
-                <div class="price-cards">
-                  <div class="card shadow">
-                    <ul>
-                      <li class="pack">Service</li>
-                      <li class="price bottom-bar">
-                        <!-- <i class="fas fa-rupee-sign"></i> -->
-                        ₹
-                        <span id="rates_service">{{sv_monthly}}</span>
-                      </li>
-                      <li class="bottom-bar">
-                        Complete database with respective case laws
-                      </li>
-
-                      <li>
-                        <a href="{% url 'sub-selection' %}" class="apply-now"
-                          >Subscribe</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div class="pricing-plan-action">
+                <p class="pricing-plan-cost">₹<span id="rates_civil">{{cv_monthly}}</span></p>
+                <p class="pricing-plan-text">For 1 Month</p>
+                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
               </div>
-              <div class="swiper-slide">
-                <div class="price-cards">
-                  <div class="card shadow">
-                    <ul>
-                      <li class="pack">Taxation</li>
-                      <li class="price bottom-bar">
-                        <!-- <i class="fas fa-rupee-sign"></i> -->
-                        ₹
-                        <span id="rates_tax">{{tx_monthly}}</span>
-                      </li>
-                      <li class="bottom-bar">
-                        Complete database with respective case laws
-                      </li>
+            </section>
 
-                      <li>
-                        <a href="{% url 'sub-selection' %}" class="apply-now"
-                          >Subscribe</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+            <!-- CRIMINAL -->
+            <section class="pricing-plan" id="criminal">
+              <div class="pricing-plan-header">
+                <p class="pricing-plan-title">
+                  CRIMINAL
+                </p>
               </div>
-              <div class="swiper-slide">
-                <div class="price-cards">
-                  <div class="card shadow">
-                    <ul>
-                      <li class="pack">Corporate</li>
-                      <li class="price bottom-bar">
-                        <!-- <i class="fas fa-rupee-sign"></i> -->
-                        ₹
-                        <span id="rates_cor">{{crp_monthly}}</span>
-                      </li>
-                      <li class="bottom-bar">
-                        Complete database with respective case laws
-                      </li>
+              <div class="pricing-plan-description">
+                <ul class="pricing-plan-list">
+                  <li class="pricing-plan-feature">All Indian Courts</li>
+                  <li class="pricing-plan-feature">Indian Commission</li>
+                  <li class="pricing-plan-feature">Personalised Headnotes</li>
+                </ul>
+              </div>
+              <div class="pricing-plan-action">
+                <p class="pricing-plan-cost">₹<span id="rates_criminal">{{cr_monthly}}</span></p>
+                <p class="pricing-plan-text">For 1 Month</p>
+                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
+              </div>
+            </section>
 
-                      <li>
-                        <a href="{% url 'sub-selection' %}" class="apply-now"
-                          >Subscribe</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+            <!-- SERVICE -->
+            <section class="pricing-plan" id="service">
+              <div class="pricing-plan-header">
+                <p class="pricing-plan-title">
+                  SERVICE
+                </p>
               </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <div class="swipe-container-right">
-            <i id="swipe-arrow" class="fas fa-chevron-circle-right"></i>
-          </div>
+              <div class="pricing-plan-description">
+                <ul class="pricing-plan-list">
+                  <li class="pricing-plan-feature">The Supreme Court of India</li>
+                  <li class="pricing-plan-feature">All Indian Tribunals</li>
+                  <li class="pricing-plan-feature">Personalised Headnotes</li>
+                </ul>
+              </div>
+              <div class="pricing-plan-action">
+                <p class="pricing-plan-cost">₹<span id="rates_service">{{sv_monthly}}</span></p>
+                <p class="pricing-plan-text">For 1 Month</p>
+                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
+              </div>
+            </section>
+
+            <!-- TAXATION -->
+            <section class="pricing-plan" id="taxation">
+              <div class="pricing-plan-header">
+                <p class="pricing-plan-title">
+                  TAXATION
+                </p>
+              </div>
+              <div class="pricing-plan-description">
+                <ul class="pricing-plan-list">
+                  <li class="pricing-plan-feature">All Indian Courts</li>
+                  <li class="pricing-plan-feature">All Indian Tribunals</li>
+                  <li class="pricing-plan-feature">Personalised Headnotes</li>
+                </ul>
+              </div>
+              <div class="pricing-plan-action">
+                <p class="pricing-plan-cost">₹<span id="rates_tax">{{tx_monthly}}</span></p>
+                <p class="pricing-plan-text">For 1 Month</p>
+                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
+              </div>
+            </section>
+
+            <!-- CORPORATE -->
+            <section class="pricing-plan" id="corporate">
+              <div class="pricing-plan-header">
+                <p class="pricing-plan-title">
+                  CORPORATE
+                </p>
+              </div>
+              <div class="pricing-plan-description">
+                <ul class="pricing-plan-list">
+                  <li class="pricing-plan-feature">All Indian Courts</li>
+                  <li class="pricing-plan-feature">Personalised Headnotes</li>
+                </ul>
+              </div>
+              <div class="pricing-plan-action">
+                <p class="pricing-plan-cost">₹<span id="rates_cor">{{crp_monthly}}</span></p>
+                <p class="pricing-plan-text">For 1 Month</p>
+                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
+              </div>
+            </section>
         </div>
         <!-- END OF PRICE CARD SECTION -->
-      </div>
     </div>
 
     <!--------------------------- SCRIPT --------------------------->

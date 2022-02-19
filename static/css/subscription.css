@@ -1,13 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@500&family=Karla:wght@700&family=Merriweather:wght@700&family=Spectral:wght@800&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  scroll-behavior: smooth;
+}
 
+/* Box sizing rules */
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  user-select: none;
   box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .subscription-wrapper {
@@ -339,158 +364,99 @@
 
 /* RADIO BUTTONS END */
 
-.professional-card-container {
+.professional-card-main-container {
   /* outline: 1px solid blue; */
-  position: relative;
-  display: grid;
-  grid-template-columns: 10% 80% 10%;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  display: flex;
   flex-wrap: wrap;
-  z-index: 10;
-}
-
-.swiper {
-  /* background-color: red; */
-  position: relative;
-  width: 100%;
-  padding-block: 50px;
-  z-index: -1;
-}
-.swiper-slide {
-  background: #fff;
-  background-position: center;
-  background-size: cover;
-  width: 20rem;
-  /* background: #fff; */
-  /* box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); */
-  filter: blur(2px);
-  border-radius: 12.8px;
-  /* z-index: 5; */
-}
-
-.swiper-slide-active {
-  filter: blur(0);
-  /* z-index: 10; */
-}
-
-.swiper-3d .swiper-slide-shadow-left,
-.swiper-3d .swiper-slide-shadow-right {
-  background-image: none;
-}
-
-.swipe-container-left,
-.swipe-container-right {
-  position: relative;
-  /* background-color: crimson; */
-  padding: 0.5rem;
-  width: 70%;
-  display: flex;
-  align-items: center;
-  z-index: 10;
-}
-
-.swipe-container-left {
-  border-top-right-radius: 2.5rem;
-  border-bottom-right-radius: 2.5rem;
-  justify-self: flex-start;
-  justify-content: flex-end;
-}
-
-#swipe-arrow {
-  font-size: 2.5rem;
-}
-
-.swipe-container-right {
-  justify-self: flex-end;
-  border-top-left-radius: 2.5rem;
-  border-bottom-left-radius: 2.5rem;
-}
-
-.price-cards {
-  /* outline: 2px solid red; */
-  display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-wrap: wrap; */
-  height: 100%;
-  width: 100%;
+  width: 80%;
+  min-height: 100%;
 }
 
-.card {
-  background: #fff;
-  font-family: "Karla", sans-serif;
-
-  /* color: #fff; */
-  color: hsl(233, 13%, 33%);
-
-  border-radius: 12.8px;
-  border: 1px solid #a3a3a3;
-
-  height: 100%;
+.pricing-plan {
+  min-width: 18.75rem;
+  min-height: 26.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: "Merriweather", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0.9rem;
 }
 
-.card.shadow ul {
-  margin: 2.6rem;
+.pricing-plan-header {
+  padding: 1.5rem;
+  background: #009578;
+  color: #fff;
+}
+
+.pricing-plan-title {
+  /* margin: 0; */
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.pricing-plan-description {
+  padding: 1.9rem;
+}
+
+.pricing-plan-feature {
+  list-style: none;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.pricing-plan-feature:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.pricing-plan-feature::before {
+  content: "\2714";
+  color: #009578;
+  position: absolute;
+  left: 0;
+}
+
+.pricing-plan-action {
+  padding: 1.5rem;
+  border-top: 1px solid #eeeeee;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.card.shadow ul li {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 1rem 0;
+.pricing-plan-cost {
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
 }
 
-ul li.price {
-  font-size: clamp(1.9rem, 2.3vw, 3.5rem);
-  color: hsl(233, 13%, 33%);
-  padding-bottom: 2rem;
-  /* color: #fff; */
-  color: hsl(233, 13%, 33%);
-  font-family: "Karla", sans-serif;
+.pricing-plan-text {
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0 0 0.6rem 0;
 }
 
-.shadow {
-  box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-bar {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.583);
-  font-family: "Karla", sans-serif;
-}
-
-.pack {
-  font-size: clamp(1.5rem, 1.99vw, 2.2rem);
-  color: hsl(233, 13%, 33%);
-  text-transform: uppercase;
-  font-family: "Karla", sans-serif;
-}
-
-.apply-now {
-  margin-top: 16px;
-  height: 41.6px;
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  /* background: linear-gradient(
-    135deg,
-    rgba(163, 168, 240, 1) 0%,
-    rgba(105, 111, 221, 1) 100%
-  ); */
-  background-color: #000;
-  color: #fff;
-  outline: none;
-  border: 0;
-  font-weight: bold;
+.subscribe-now {
+  display: inline-block;
+  margin: 0.9rem auto;
+  padding: 0.5rem 1.25rem;
   text-decoration: none;
   font-family: "Karla", sans-serif;
+  color: #009578;
+  background: #fff;
+  border-radius: 0.3rem;
+  border: 1px solid #009578;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  font-weight: bold;
+}
+
+.subscribe-now:hover {
+  background: #009578;
+  color: #fff;
 }

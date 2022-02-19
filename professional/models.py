@@ -60,10 +60,14 @@ category= (
     ('arbitration', 'arbitration'),
     ('bail', 'bail'),
     ('binding precedent', 'bindin precedent'),
+    ('cocpr', 'code of civil procedure'),
     ('contempt', 'contempt'),
+    ('contract', 'contract'),
+    ('evidence', 'evidence'),
     ('execution of decree', 'executuon of decree'),
     ('fop', 'fixation of pay'),
     ('limitations', 'limitations'),
+    ('mad', 'marriage and divorce'),
     ('negative equality', 'negative equality'),
     ('od/ss/rd', 'Obitor Dicta / Sub Silenso-Ratio/ Decidendi'),
     ('preliminary investigation', 'preliminary investigation'),
@@ -75,6 +79,7 @@ category= (
     ('sba', 'substitution by amendment'),
     ('special relief', 'special relief'),
     ('tap', 'transfer and posting'),
+    ('top', 'transfer of property'),
     ('u/p', 'upgradation/promotion'),
     ('zimma', 'zimma'),
 )
@@ -106,6 +111,8 @@ INSTITUTION = (
     ('The Tripura High Court', 'Tripura High Court'),
     ('The Uttarakhand High Court', 'Uttarakhand High Court'),
     
+    # TRIBUNALS
+
     ('Administrative Tribunal', 'Administrative Tribunal'),
     ('Appellate Tribunal for Electricity', 'Appellate Tribunal for Electricity'),
     ('Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act', 'Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act'),
@@ -122,26 +129,7 @@ INSTITUTION = (
     ('The Telecom Disputes Settlement and Appellate Tribunal', 'The Telecom Disputes Settlement and Appellate Tribunal'),
 )
 
-# tribunal_list = (
 
-#     ('Industrial Tribunal', 'Industrial Tribunal'),
-#     ('Income Tax Appellate Tribunal', 'Income Tax Appellate Tribunal'),
-#     ('Customs, Excise and Service Tax Appellate Tribunal', 'Customs, Excise and Service Tax Appellate Tribunal'),
-#     ('Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act', 'Appellate Tribunal under Smugglers and Foreign Exchange Manipulators Act'),
-#     ('Administrative Tribunal', 'Administrative Tribunal'),
-#     ('Railway Claims Tribunal', 'Railway Claims Tribunal'),
-#     ('Securities Appellate Tribunal', 'Securities Appellate Tribunal'),
-#     ('Debt Recovery Tribunal', 'Debt Recovery Tribunal'),
-#     ('The Telecom Disputes Settlement and Appellate Tribunal', 'The Telecom Disputes Settlement and Appellate Tribunal'),
-#     (' National Companies Law Appellate Tribunal', ' National Companies Law Appellate Tribunal'),
-#     ('Industrial Tribunal', 'Industrial Tribunal'),
-#     ('National Consumer Disputes Redressal Commission', 'National Consumer Disputes Redressal Commission'),
-#     ('Appellate Tribunal for Electricity', 'Appellate Tribunal for Electricity'),
-#     ('Armed Forces Tribunal', 'Armed Forces Tribunal'),
-#     ('National Green Tribunal', 'National Green Tribunal'),
-
-
-# )
 
 citation_type = (
 
@@ -164,8 +152,6 @@ citation_type = (
 class Citation(models.Model):
    
     institution_name =models.CharField(max_length=255, choices=INSTITUTION ,null=True, blank= True)
-
-    # tribunals = models.CharField(max_length=255, choices= tribunal_list,blank=True ,null=True)
 
     apelLate_type = models.CharField(max_length=255,null=True,help_text="required")
 
