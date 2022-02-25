@@ -26,6 +26,12 @@ dl,
 dd {
   margin: 0;
 }
+pre {
+  font-size: none;
+  font-family: none;
+  margin: 0;
+  padding: 0;
+}
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
@@ -84,7 +90,7 @@ ol[role="list"] {
 .dedoc-court,
 .dedoc-equi-citation,
 .dedoc-apellate,
-.dedoc-adv-petitioner,
+/* .dedoc-adv-petitioner, */
 .dedoc-adv-respondent,
 .dedoc-party-name,
 .dedoc-headnote,
@@ -127,6 +133,8 @@ ol[role="list"] {
   justify-content: center;
   align-items: center;
   text-align: left;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .dedoc-references-container {
@@ -150,4 +158,6 @@ ol[role="list"] {
   flex-direction: column;
   text-align: justify;
   gap: 0.5rem;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
 }

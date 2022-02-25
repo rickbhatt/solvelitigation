@@ -1,5 +1,8 @@
+.gitignore
 dump.md
 .prettierignore
-dumb.txt
+dump.txt
 mebership documentation.md
 __pycache__
+.env
+db.sqlite3

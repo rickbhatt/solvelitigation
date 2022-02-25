@@ -135,6 +135,7 @@
             id="monthly"
             value="monthly"
             class="plan"
+            checked
             required
           />
           <input
@@ -172,112 +173,122 @@
         <!-- PRICE CARDS SECTION -->
         <div class="professional-card-main-container">
           <!-- CIVIL -->
-            <section class="pricing-plan" id="civil">
-              <div class="pricing-plan-header">
-                <p class="pricing-plan-title">
-                  CIVIL
-                </p>
-              </div>
-              <div class="pricing-plan-description">
-                <ul class="pricing-plan-list">
-                  <li class="pricing-plan-feature">All Indian Courts</li>
-                  <li class="pricing-plan-feature">Personalised Headnotes</li>
-                  <!-- <li class="pricing-plan-feature"></li> -->
-                </ul>
-              </div>
-              <div class="pricing-plan-action">
-                <p class="pricing-plan-cost">₹<span id="rates_civil">{{cv_monthly}}</span></p>
-                <p class="pricing-plan-text">For 1 Month</p>
-                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
-              </div>
-            </section>
+          <section class="pricing-plan" id="civil">
+            <div class="pricing-plan-header">
+              <p class="pricing-plan-title">CIVIL</p>
+            </div>
+            <div class="pricing-plan-description">
+              <ul class="pricing-plan-list">
+                <li class="pricing-plan-feature">All Indian Courts</li>
+                <li class="pricing-plan-feature">Personalised Headnotes</li>
+                <!-- <li class="pricing-plan-feature"></li> -->
+              </ul>
+            </div>
+            <div class="pricing-plan-action">
+              <p class="pricing-plan-cost">
+                ₹<span id="rates_civil">{{cv_monthly}}</span>
+              </p>
+              <p class="pricing-plan-text">For 1 Month</p>
+              <a href="{% url 'sub-selection' %}" class="subscribe-now"
+                >Subscribe</a
+              >
+            </div>
+          </section>
 
-            <!-- CRIMINAL -->
-            <section class="pricing-plan" id="criminal">
-              <div class="pricing-plan-header">
-                <p class="pricing-plan-title">
-                  CRIMINAL
-                </p>
-              </div>
-              <div class="pricing-plan-description">
-                <ul class="pricing-plan-list">
-                  <li class="pricing-plan-feature">All Indian Courts</li>
-                  <li class="pricing-plan-feature">Indian Commission</li>
-                  <li class="pricing-plan-feature">Personalised Headnotes</li>
-                </ul>
-              </div>
-              <div class="pricing-plan-action">
-                <p class="pricing-plan-cost">₹<span id="rates_criminal">{{cr_monthly}}</span></p>
-                <p class="pricing-plan-text">For 1 Month</p>
-                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
-              </div>
-            </section>
+          <!-- CRIMINAL -->
+          <section class="pricing-plan" id="criminal">
+            <div class="pricing-plan-header">
+              <p class="pricing-plan-title">CRIMINAL</p>
+            </div>
+            <div class="pricing-plan-description">
+              <ul class="pricing-plan-list">
+                <li class="pricing-plan-feature">All Indian Courts</li>
+                <li class="pricing-plan-feature">Indian Commission</li>
+                <li class="pricing-plan-feature">Personalised Headnotes</li>
+              </ul>
+            </div>
+            <div class="pricing-plan-action">
+              <p class="pricing-plan-cost">
+                ₹<span id="rates_criminal">{{cr_monthly}}</span>
+              </p>
+              <p class="pricing-plan-text">For 1 Month</p>
+              <a href="{% url 'sub-selection' %}" class="subscribe-now"
+                >Subscribe</a
+              >
+            </div>
+          </section>
 
-            <!-- SERVICE -->
-            <section class="pricing-plan" id="service">
-              <div class="pricing-plan-header">
-                <p class="pricing-plan-title">
-                  SERVICE
-                </p>
-              </div>
-              <div class="pricing-plan-description">
-                <ul class="pricing-plan-list">
-                  <li class="pricing-plan-feature">The Supreme Court of India</li>
-                  <li class="pricing-plan-feature">All Indian Tribunals</li>
-                  <li class="pricing-plan-feature">Personalised Headnotes</li>
-                </ul>
-              </div>
-              <div class="pricing-plan-action">
-                <p class="pricing-plan-cost">₹<span id="rates_service">{{sv_monthly}}</span></p>
-                <p class="pricing-plan-text">For 1 Month</p>
-                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
-              </div>
-            </section>
+          <!-- SERVICE -->
+          <section class="pricing-plan" id="service">
+            <div class="pricing-plan-header">
+              <p class="pricing-plan-title">SERVICE</p>
+            </div>
+            <div class="pricing-plan-description">
+              <ul class="pricing-plan-list">
+                <li class="pricing-plan-feature">The Supreme Court of India</li>
+                <li class="pricing-plan-feature">All Indian Tribunals</li>
+                <li class="pricing-plan-feature">Personalised Headnotes</li>
+              </ul>
+            </div>
+            <div class="pricing-plan-action">
+              <p class="pricing-plan-cost">
+                ₹<span id="rates_service">{{sv_monthly}}</span>
+              </p>
+              <p class="pricing-plan-text">For 1 Month</p>
+              <a href="{% url 'sub-selection' %}" class="subscribe-now"
+                >Subscribe</a
+              >
+            </div>
+          </section>
 
-            <!-- TAXATION -->
-            <section class="pricing-plan" id="taxation">
-              <div class="pricing-plan-header">
-                <p class="pricing-plan-title">
-                  TAXATION
-                </p>
-              </div>
-              <div class="pricing-plan-description">
-                <ul class="pricing-plan-list">
-                  <li class="pricing-plan-feature">All Indian Courts</li>
-                  <li class="pricing-plan-feature">All Indian Tribunals</li>
-                  <li class="pricing-plan-feature">Personalised Headnotes</li>
-                </ul>
-              </div>
-              <div class="pricing-plan-action">
-                <p class="pricing-plan-cost">₹<span id="rates_tax">{{tx_monthly}}</span></p>
-                <p class="pricing-plan-text">For 1 Month</p>
-                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
-              </div>
-            </section>
+          <!-- TAXATION -->
+          <section class="pricing-plan" id="taxation">
+            <div class="pricing-plan-header">
+              <p class="pricing-plan-title">TAXATION</p>
+            </div>
+            <div class="pricing-plan-description">
+              <ul class="pricing-plan-list">
+                <li class="pricing-plan-feature">All Indian Courts</li>
+                <li class="pricing-plan-feature">All Indian Tribunals</li>
+                <li class="pricing-plan-feature">Personalised Headnotes</li>
+              </ul>
+            </div>
+            <div class="pricing-plan-action">
+              <p class="pricing-plan-cost">
+                ₹<span id="rates_tax">{{tx_monthly}}</span>
+              </p>
+              <p class="pricing-plan-text">For 1 Month</p>
+              <a href="{% url 'sub-selection' %}" class="subscribe-now"
+                >Subscribe</a
+              >
+            </div>
+          </section>
 
-            <!-- CORPORATE -->
-            <section class="pricing-plan" id="corporate">
-              <div class="pricing-plan-header">
-                <p class="pricing-plan-title">
-                  CORPORATE
-                </p>
-              </div>
-              <div class="pricing-plan-description">
-                <ul class="pricing-plan-list">
-                  <li class="pricing-plan-feature">All Indian Courts</li>
-                  <li class="pricing-plan-feature">Personalised Headnotes</li>
-                </ul>
-              </div>
-              <div class="pricing-plan-action">
-                <p class="pricing-plan-cost">₹<span id="rates_cor">{{crp_monthly}}</span></p>
-                <p class="pricing-plan-text">For 1 Month</p>
-                <a href="{% url 'sub-selection' %}" class="subscribe-now">Subscribe</a> 
-              </div>
-            </section>
+          <!-- CORPORATE -->
+          <section class="pricing-plan" id="corporate">
+            <div class="pricing-plan-header">
+              <p class="pricing-plan-title">CORPORATE</p>
+            </div>
+            <div class="pricing-plan-description">
+              <ul class="pricing-plan-list">
+                <li class="pricing-plan-feature">All Indian Courts</li>
+                <li class="pricing-plan-feature">Personalised Headnotes</li>
+              </ul>
+            </div>
+            <div class="pricing-plan-action">
+              <p class="pricing-plan-cost">
+                ₹<span id="rates_cor">{{crp_monthly}}</span>
+              </p>
+              <p class="pricing-plan-text">For 1 Month</p>
+              <a href="{% url 'sub-selection' %}" class="subscribe-now"
+                >Subscribe</a
+              >
+            </div>
+          </section>
         </div>
         <!-- END OF PRICE CARD SECTION -->
+      </div>
     </div>
-
     <!--------------------------- SCRIPT --------------------------->
     <script
       type="text/javascript"

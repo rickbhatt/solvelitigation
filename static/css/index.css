@@ -343,6 +343,9 @@
   font-size: 1rem;
 }
 
+.content-center {
+  margin: auto;
+}
 /****************** END OF SERVICES SECTION **************/
 
 /**************** ABOUT SECTION *****************/

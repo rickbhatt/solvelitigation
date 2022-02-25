@@ -34,7 +34,27 @@ crp_hf = document.getElementById("crph").value;
 
 // END VARIABLE TO GET THE PRICES OF MONTHS
 
-monthly.checked = true;
+// if (quaterly.checked) {
+//   //For quaterly
+//   rate_civil.textContent = cv_quaterly;
+//   rate_criminal.textContent = cr_quaterly;
+//   rate_service.textContent = sv_qauterly;
+//   rate_tax.textContent = tx_quaterly;
+//   rate_cor.textContent = crp_quaterly;
+//   for (i = 0; i < durationText.length; i++) {
+//     durationText[i].textContent = "For 3 Months";
+//   }
+// } else if (hf.checked) {
+//   //For half_yearly
+//   rate_civil.textContent = cv_hf;
+//   rate_criminal.textContent = cr_hf;
+//   rate_service.textContent = sv_hf;
+//   rate_tax.textContent = tx_hf;
+//   rate_cor.textContent = crp_hf;
+//   for (i = 0; i < durationText.length; i++) {
+//     durationText[i].textContent = "For 6 Months";
+//   }
+// }
 
 for (i = 0; i < radio.length; i++) {
   radio[i].addEventListener("click", () => {
@@ -71,18 +91,3 @@ for (i = 0; i < radio.length; i++) {
     }
   });
 }
-
-var swiper = new Swiper(".mySwiper", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  coverflowEffect: {
-    rotate: 3,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  },
-  // loop: true,
-});
