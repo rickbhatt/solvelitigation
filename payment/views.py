@@ -9,7 +9,6 @@ from django.views.decorators.cache import cache_control
 
 from .tasks import payment_success_mail
 
-import base64
 
 # ******************* MODELS AND VIEWS FROM OTHER APPS *************************
 from account.models import CustomUser

@@ -17,10 +17,12 @@ Including another URLconf
 from msilib.schema import InstallExecuteSequence
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+
 
 urlpatterns = [
     path('', include('home.urls')),
-    path('admin/', admin.site.urls),
+    path(settings.ADMIN_URL +'/admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('payment/', include('payment.urls')),
     path('professional/', include('professional.urls')),
